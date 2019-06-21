@@ -26,6 +26,6 @@ app.post('/api/image', (req, res) => {
   })
 })
 
-app.listen(4000, function () {
+app.listen(process.env.port || 4000, function () {
   console.log('Example app listening on port 4000!')
 })
