@@ -83,7 +83,7 @@ export class App extends React.Component {
 
     // // const config = { headers: { 'Content-Type': 'multipart/form-data' } };
 
-    axios.post('http://localhost:4000/image', {
+    axios.post('/api/image', {
       picture: dataUri
     })
     .then(function (response) {
