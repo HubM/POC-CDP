@@ -60,16 +60,7 @@ export class App extends React.Component {
 
     // console.log(dataUri)
 
-    // appClarifai.models.predict(Clarifai.GENERAL_MODEL, {base64: dataUri}).then(
-    //   function(response) {
-    //     console.log("CLARIFAI RESPONSE", response)
-    //     // do something with response
-    //   },
-    //   function(err) {
-    //     console.log("CLARIFAI ERROR", err);
-    //     // there was an error
-    //   }
-    // );
+  
 
     // const block = dataUri.split(';');
     // const contentType = block[0].split(":")[1];
@@ -88,6 +79,17 @@ export class App extends React.Component {
     })
     .then(function (response) {
       console.log(response);
+      const { url } = response.data;
+      
+      appClarifai.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
+        .then(generalModel => {
+          return generalModel.predict(url);
+        })
+        .then(response => {
+          var concepts = response['outputs'][0]['data']['concepts']
+          console.log(concepts);
+        })
+      
     })
     .catch(function (error) {
       console.log(error);
@@ -130,10 +132,14 @@ export class App extends React.Component {
           onCameraStop = { () => { this.onCameraStop(); } }
         />
         <h1>BOOO</h1>
-        {
+        {/* {
           this.state.pic &&
           <img className="OOOOOOOO" src={this.state.pic} />
-        }
+        } */}
+        {/* {
+          this.state.results &&
+          
+        } */}
       </div>
     );
   }
