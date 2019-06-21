@@ -1,22 +1,28 @@
 const express = require('express')
+const fs = require('fs');
 const app = express()
 const bodyParser = require('body-parser')
 
-const Clarifai = require('clarifai');
-
-app.use(bodyParser.json())
-
-new Clarifai.App({
-  apiKey: 'a151eabbd43f493783fd82f203ee48e8'
-})
+app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }));
+app.use(bodyParser.json({ limit: '5mb' }));
+app.use(express.static('public'));
 
 app.get('/', function (req, res) {
   res.send('Hello World!')
 })
 
 app.post('/image', (req, res) => {
-  console.log(req.body);
-  res.end('success')
+  const base64Image = req.body.picture.split(';base64,').pop();
+
+  fs.writeFile(__dirname + '/public/out.jpg', base64Image, {encoding: 'base64'}, function(err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+
+  res.send({
+    url: "out.jpg"
+  })
 })
 
 app.listen(4000, function () {
