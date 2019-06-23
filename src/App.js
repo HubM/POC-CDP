@@ -87,8 +87,13 @@ export class App extends React.Component {
         })
         .then(response => {
           var concepts = response['outputs'][0]['data']['concepts'];
-          let selectedPredictions = concepts.map(prediction => prediction.value >= 0.95);
+
+          console.log("concepts", concepts);
+
+          let selectedPredictions = concepts.filter(prediction => prediction.value >= 0.95);
           
+          console.log("selectedPredictions", selectedPredictions);
+
           this.setState({
             selectedPredictions
           })

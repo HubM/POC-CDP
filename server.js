@@ -22,7 +22,7 @@ app.post('/api/image', (req, res) => {
   });
 
   res.send({
-    url: "http://cdp2021.herokuapp.com/out.jpg"
+    url: "https://cdp2021.herokuapp.com/out.jpg"
   })
 })
 
