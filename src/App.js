@@ -86,8 +86,12 @@ export class App extends React.Component {
           return generalModel.predict(url);
         })
         .then(response => {
-          var concepts = response['outputs'][0]['data']['concepts']
-          console.log(concepts);
+          var concepts = response['outputs'][0]['data']['concepts'];
+          let selectedPredictions = concepts.map(prediction => prediction.value >= 0.95);
+          
+          this.setState({
+            selectedPredictions
+          })
         })
       
     })
@@ -131,15 +135,24 @@ export class App extends React.Component {
           onCameraStart = { (stream) => { this.onCameraStart(stream); } }
           onCameraStop = { () => { this.onCameraStop(); } }
         />
-        <h1>BOOO</h1>
-        {/* {
-          this.state.pic &&
-          <img className="OOOOOOOO" src={this.state.pic} />
-        } */}
-        {/* {
-          this.state.results &&
-          
-        } */}
+        <h1>Predictions tests</h1>
+        {
+          this.state.selectedPredictions.map(predict => 
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Results > 0.95</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{predict.name}</td>
+                        <td>{predict.value}</td>
+                    </tr>
+                </tbody>
+            </table>
+          )
+        }
       </div>
     );
   }
