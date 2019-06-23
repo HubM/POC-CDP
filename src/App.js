@@ -137,6 +137,7 @@ export class App extends React.Component {
         />
         <h1>Predictions tests</h1>
         {
+          this.state.selectedPredictions &&
           this.state.selectedPredictions.map(predict => 
             <table>
                 <thead>
