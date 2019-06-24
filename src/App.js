@@ -76,14 +76,15 @@ export class App extends React.Component {
     const base64String = Buffer.from(dataUri).toString("base64");
 
     // console.log(appClarifai);
-    appClarifai.models.initModel({id: 'patrimoine', version: "e6d53131b44d4bb99634a60c58fafece"})
+    appClarifai.models.initModel({id: 'patrimoine', version: "04f3033f276d4634a90b15aff85dcba8"})
     .then(customModel => {
-      return customModel.predict("https://img.20mn.fr/hxL6BcOqS3WSt4JW0zVoTA/310x190_beaucoup-francais-negligent-sante-pieds-mesures-simples-permettent-pourtant-preserver.jpg");
+      return customModel.predict("https://img.aws.la-croix.com/2016/05/31/1200764032/Une-structure-unique-forme-vigne-pour-evoquer-fois-tournant-dans-verre-remous-Garonne_0_730_487.jpg");
       // return customModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
     })
     .then(response => {
       var concepts = response['outputs'][0]['data']['concepts']
-      console.log("PIAF CONCEPTS", concepts);
+      console.log("TRAIN IA", concepts);
+      this.setState({selectedPredictions: concepts})
     })
     // appClarifai.models.predict({id: 'statue', version: "00d13a21528f4ba683c4d979dbc972df"}, base64String).then(response => {
     //   console.log(response.outputs[0].data.concepts);
@@ -158,22 +159,14 @@ export class App extends React.Component {
           onCameraStop = { () => { this.onCameraStop(); } }
         />
         <h1>Predictions tests</h1>
+        <div>Results > 0.95</div>
         {
           this.state.selectedPredictions &&
           this.state.selectedPredictions.map(predict => 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">Results > 0.95</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{predict.name}</td>
-                        <td>{predict.value}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+              <div>{predict.name}</div>
+              <div>{predict.value}</div>
+            </div>
           )
         }
       </div>
