@@ -57,7 +57,17 @@ export class App extends React.Component {
       .then(response => {
         var concepts = response['outputs'][0]['data']['concepts']
         console.log("TRAIN IA", concepts);
-        this.setState({selectedPredictions: concepts})
+      
+        if (concepts[0].value >= 0.6) {
+          this.setState({
+            place: concepts[0]
+          })
+        } else {
+          this.setState({
+            noPlace: true
+          })
+        }
+        
       })
     })
     .catch(error => {
@@ -77,33 +87,51 @@ export class App extends React.Component {
  
   onCameraStop () {
     console.log('onCameraStop');
+    this.setState({
+      photoTaken: true
+    })
   }
 
 
   render() {
     return (
       <div className="App">
-        <Camera
-          onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
-          onCameraError = { (error) => { this.onCameraError(error); } }
-          idealFacingMode = {FACING_MODES.ENVIRONMENT}
-          idealResolution = {{width: 640, height: 480}}
-          imageType = {IMAGE_TYPES.JPG}
-          imageCompression = {0.97}
-          isMaxResolution = {false}
-          isImageMirror = {false}
-          isSilentMode = {true}
-          isDisplayStartCameraError = {true}
-          isFullscreen = {false}
-          sizeFactor = {1}
-          onCameraStart = { (stream) => { this.onCameraStart(stream); } }
-          onCameraStop = { () => { this.onCameraStop(); } }
-        />
-        <h1>Predictions tests</h1>
         {
-          this.state.selectedPredictions &&
-          <h2>Il semblerait que tu sois => {this.state.selectedPredictions[0].name}</h2>
+          !this.state.photoTaken ?
+            <div>
+              <Camera
+                onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
+                onCameraError = { (error) => { this.onCameraError(error); } }
+                idealFacingMode = {FACING_MODES.ENVIRONMENT}
+                idealResolution = {{width: 640, height: 480}}
+                imageType = {IMAGE_TYPES.JPG}
+                imageCompression = {0.97}
+                isMaxResolution = {false}
+                isImageMirror = {false}
+                isSilentMode = {true}
+                isDisplayStartCameraError = {true}
+                isFullscreen = {false}
+                sizeFactor = {1}
+                onCameraStart = { (stream) => { this.onCameraStart(stream); } }
+                onCameraStop = { () => { this.onCameraStop(); } }
+              />
+            </div>
+            : 
+            <div>
+              {
+                this.state.place &&
+                <h2>Il semblerait que tu sois à {this.state.place.name}</h2>
+              }
+              {
+                this.state.noPlace &&
+                <div>
+                  <p>Oups, nous ne parvenons pas à trouver la place sur laquelle tu te trouves <span role="img" aria-label="emoji sad">😔</span></p>
+                  <button onClick={() => this.setState({photoTaken: false, noPlace: false})}>Nouvelle photo</button>
+                </div>
+              }
+            </div>
         }
+
       </div>
     );
   }
