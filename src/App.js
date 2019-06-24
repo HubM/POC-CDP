@@ -8,11 +8,11 @@ import CameraPhoto from "./CameraPhoto";
 export class App extends React.Component {
     render() {
         return (
-            <Router>
-                <Route exact path='/' component={Home} />
-                <Route path="/gps/" component={GPS}/>
-                <Route path="/camera/" component={CameraPhoto} />
-            </Router>
+          <Router>
+            <Route path='/' component={Home} />
+            <Route path="/gps/" component={GPS}/>
+            <Route path="/camera/" component={CameraPhoto} />
+          </Router>
         );
     }
 }  

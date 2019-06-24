@@ -3,11 +3,7 @@ import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-r
 
 import places from "./places";
 
-const mapStyles = {
-    width: '100%',
-    height: '100%',
-    position: 'relative'
-};
+const styleMap = require('./styleMap.json')
 
 
 export class GPS extends Component {
@@ -162,7 +158,7 @@ export class GPS extends Component {
           google={this.props.google}
           zoom={16}
           className={'map'}
-          style={mapStyles}
+          styles={styleMap}
           initialCenter={{lat,lng}}
         >
           <Polygon

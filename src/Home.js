@@ -12,7 +12,7 @@ export class Home extends React.Component {
             <nav>
               <ul>
                 <li>
-                  <Link to="/gps/">GPS</Link>
+                  <Link to="/gps/">Voir la carte</Link>
                 </li>
                 <li>
                   <Link to="/camera/">CameraPhoto</Link>
