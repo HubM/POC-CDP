@@ -73,36 +73,52 @@ export class App extends React.Component {
     // formDataToUpload.append("image", blob);
 
     // // const config = { headers: { 'Content-Type': 'multipart/form-data' } };
+    const base64String = Buffer.from(dataUri).toString("base64");
 
-    axios.post('/api/image', {
-      picture: dataUri
+    // console.log(appClarifai);
+    appClarifai.models.initModel({id: 'statue', version: "00d13a21528f4ba683c4d979dbc972df"})
+    .then(customModel => {
+      return customModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
     })
-    .then(function (response) {
-      console.log(response);
-      const { url } = response.data;
+    .then(response => {
+      var concepts = response['outputs'][0]['data']['concepts']
+      console.log("PIAF CONCEPTS", concepts);
+    })
+    // appClarifai.models.predict({id: 'statue', version: "00d13a21528f4ba683c4d979dbc972df"}, base64String).then(response => {
+    //   console.log(response.outputs[0].data.concepts);
+    // })
+
+    // axios.post('/api/image', {
+    //   picture: dataUri
+    // })
+    // .then(function (response) {
+    //   // console.log(response);
+    //   const { url } = response.data;
       
-      appClarifai.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-        .then(generalModel => {
-          return generalModel.predict(url);
-        })
-        .then(response => {
-          var concepts = response['outputs'][0]['data']['concepts'];
+    //   // appClarifai.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
+    //   //   .then(generalModel => {
+    //   //     return generalModel.predict(url);
+    //   //   })
+    //   //   .then(response => {
+    //   //     var concepts = response['outputs'][0]['data']['concepts'];
 
-          console.log("concepts", concepts);
+    //   //     console.log("concepts", concepts);
 
-          let selectedPredictions = concepts.filter(prediction => prediction.value >= 0.95);
+    //   //     let selectedPredictions = concepts.filter(prediction => prediction.value >= 0.95);
           
-          console.log("selectedPredictions", selectedPredictions);
+    //   //     console.log("selectedPredictions", selectedPredictions);
 
-          this.setState({
-            selectedPredictions
-          })
-        })
+    //   //     this.setState({
+    //   //       selectedPredictions
+    //   //     })
+    //   //   })
+
+   
       
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
 
 
     // console.log('takePhoto', dataUri);
