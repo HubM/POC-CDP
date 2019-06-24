@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-react';
 
-import places from "./places";
+import places from "./data/places";
 
 const styleMap = require('./styleMap.json')
-
 
 export class GPS extends Component {
     state = {
         lng: null,
         lat: null,
+        isGeolocated: false,
         viewMode: "map",
         polyLinePaths: []
     }
@@ -49,12 +49,14 @@ export class GPS extends Component {
 
     setTimeout(() => {
       places.some(place => {
+        console.log(place)
         const placePoint = new google.maps.LatLng(place.position.lat, place.position.lng);
     
         if (google.maps.geometry.poly.containsLocation(placePoint, paths)) {
           this.setState({
             nearestPlace : place.name,
-            placeDescription: place.description
+            placeDescription: place.description,
+            isGeolocated: true
           })
           return true;
         } else {
@@ -64,15 +66,13 @@ export class GPS extends Component {
           })
           return false;
         }
-        
       })
-
-
 
       this.setState({
         lng: position.coords.longitude,
         lat: position.coords.latitude,
         viewMode: "map",
+        zoom: 16,
         polyLinePaths: [
           {lat: position.coords.latitude - 0.0003, lng: position.coords.longitude - 0.0003},
           {lat: position.coords.latitude - 0.0003, lng: position.coords.longitude + 0.0003},
@@ -80,7 +80,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
         ]
       })
-    }, 300)
+    }, 100)
   }
 
   errorGeoloc = error => {
@@ -89,9 +89,10 @@ export class GPS extends Component {
         alert('UNKNOWN ERROR');
         break;
       case 1:
-        alert('PERMISSION DENIED ERROR');
         this.setState({
-          viewMode: "decline"
+          zoom: 14,
+          lat: 44.85,
+          lng: -0.560049
         });
         break;
       case 2:
@@ -105,40 +106,44 @@ export class GPS extends Component {
     }
   }
 
-  getDirectionToPoint = event => {
-    const { lat, lng, directionsService } = this.state;
+  // getDirectionToPoint = event => {
+  //   const { lat, lng, directionsService } = this.state;
 
-    this.setState({
-      gps: null
-    })
+  //   this.setState({
+  //     gps: null
+  //   })
 
-    const request = {
-      origin: {
-        lat,
-        lng
-      },
-      destination: event.position,
-      travelMode: 'WALKING'
-    };
+  //   const request = {
+  //     origin: {
+  //       lat,
+  //       lng
+  //     },
+  //     destination: event.position,
+  //     travelMode: 'WALKING'
+  //   };
 
-    directionsService.route(request, (results, status) => {
-      if (status === "OK") {
+  //   directionsService.route(request, (results, status) => {
+  //     if (status === "OK") {
 
-        const pathsArray = Object.keys(results.routes[0].overview_path).map((k) => results.routes[0].overview_path[k])
+  //       const pathsArray = Object.keys(results.routes[0].overview_path).map((k) => results.routes[0].overview_path[k])
 
-        this.setState({
-          gps: {
-            path: pathsArray
-          }
-        })
-      } else {
-          console.log("NOT-GOOD!");
-      }
-    })
+  //       this.setState({
+  //         gps: {
+  //           path: pathsArray
+  //         }
+  //       })
+  //     } else {
+  //         console.log("NOT-GOOD!");
+  //     }
+  //   })
+  // }
+
+  getBasicPlaceInfos = (event) => {
+    console.log("clicked event", event);
   }
 
   render() {
-    const { lat, lng, viewMode, polyLinePaths, nearestPlace, placeDescription, gps} = this.state;
+    const { lat, lng, viewMode, polyLinePaths, nearestPlace, placeDescription, gps, zoom, isGeolocated} = this.state;
     let view; 
     
     if (lat && lng && viewMode === "map") {
@@ -156,9 +161,15 @@ export class GPS extends Component {
         }
         <Map
           google={this.props.google}
-          zoom={16}
+          zoom={zoom}
           className={'map'}
           styles={styleMap}
+          fullscreenControl={false}
+          panControl={false}
+          rotateControl={false}
+          streetViewControl={false}
+          mapTypeControl={'ROADMAP'}
+          scaleControl={false}
           initialCenter={{lat,lng}}
         >
           <Polygon
@@ -167,19 +178,22 @@ export class GPS extends Component {
             strokeOpacity={0.8}
             strokeWeight={1}
           />
-          <Marker
-            title={'The marker`s title will appear as a tooltip.'}
-            name={`You`}
-            icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
-            position={{lat, lng}} 
-          />
+          {
+            isGeolocated &&
+            <Marker
+              title={'The marker`s title will appear as a tooltip.'}
+              name={`You`}
+              icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+              position={{lat, lng}} 
+            />
+          }
           {
             places.map( (place,index) => 
               <Marker
                 name={place.name}
                 position={place.position}
                 key={`marker-${place.name}`}
-                onClick={this.getDirectionToPoint}
+                onClick={this.getBasicPlaceInfos}
               />
           )}
           {

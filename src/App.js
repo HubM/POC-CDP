@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import Home from "./Home";
-import GPS from "./GPS";
+import GMap from "./GMap";
 import CameraPhoto from "./CameraPhoto";
 
 export class App extends React.Component {
@@ -10,8 +10,8 @@ export class App extends React.Component {
         return (
           <Router>
             <Route path='/' component={Home} />
-            <Route path="/gps/" component={GPS}/>
-            <Route path="/camera/" component={CameraPhoto} />
+            <Route path="/map" component={GMap}/>
+            <Route path="/camera" component={CameraPhoto} />
           </Router>
         );
     }
