@@ -76,9 +76,10 @@ export class App extends React.Component {
     const base64String = Buffer.from(dataUri).toString("base64");
 
     // console.log(appClarifai);
-    appClarifai.models.initModel({id: 'statue', version: "00d13a21528f4ba683c4d979dbc972df"})
+    appClarifai.models.initModel({id: 'patrimoine', version: "e6d53131b44d4bb99634a60c58fafece"})
     .then(customModel => {
-      return customModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
+      return customModel.predict("https://img.20mn.fr/hxL6BcOqS3WSt4JW0zVoTA/310x190_beaucoup-francais-negligent-sante-pieds-mesures-simples-permettent-pourtant-preserver.jpg");
+      // return customModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
     })
     .then(response => {
       var concepts = response['outputs'][0]['data']['concepts']
