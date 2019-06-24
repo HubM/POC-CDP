@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { Link} from "react-router-dom";
 
 
 export class Home extends React.Component {
@@ -8,9 +8,17 @@ export class Home extends React.Component {
     render() {
         return (
         <div className="Home">
-            <p>Hello Home</p>
-            <Link to="/gps/">GPS</Link>
-            <Link to="/camera/">CameraPhoto</Link>
+            <p>Welcome on CIDP app</p>
+            <nav>
+              <ul>
+                <li>
+                  <Link to="/gps/">GPS</Link>
+                </li>
+                <li>
+                  <Link to="/camera/">CameraPhoto</Link>
+                </li>
+              </ul>
+            </nav>
         </div>
         );
         
