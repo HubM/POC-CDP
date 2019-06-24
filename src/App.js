@@ -76,9 +76,9 @@ export class App extends React.Component {
     const base64String = Buffer.from(dataUri).toString("base64");
 
     // console.log(appClarifai);
-    appClarifai.models.initModel({id: 'patrimoine', version: "04f3033f276d4634a90b15aff85dcba8"})
+    appClarifai.models.initModel({id: 'patrimoine', version: "421a18466de4434b99fe78704f644e7c"})
     .then(customModel => {
-      return customModel.predict("https://img.aws.la-croix.com/2016/05/31/1200764032/Une-structure-unique-forme-vigne-pour-evoquer-fois-tournant-dans-verre-remous-Garonne_0_730_487.jpg");
+      return customModel.predict("https://live.staticflickr.com/8199/8222255700_344a8339e9_b.jpg");
       // return customModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
     })
     .then(response => {
