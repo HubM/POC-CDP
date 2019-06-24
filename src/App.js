@@ -100,18 +100,10 @@ export class App extends React.Component {
           onCameraStop = { () => { this.onCameraStop(); } }
         />
         <h1>Predictions tests</h1>
-        {/* <div>Results > 0.95</div> */}
-        {/* {
+        {
           this.state.selectedPredictions &&
-          this.state.selectedPredictions.map(predict => 
-            <div>
-              <div>{predict.name}</div>
-              <div>{predict.value}</div>
-            </div>
-          )
-        } */}
-
-        <h2>Il semblerait que tu sois => {this.state.selectedPredictions[0].name}</h2>
+          <h2>Il semblerait que tu sois => {this.state.selectedPredictions[0].name}</h2>
+        }
       </div>
     );
   }
