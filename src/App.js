@@ -42,70 +42,29 @@ export class App extends React.Component {
     return blob;
   }
 
-  // componentWillMount() {
-  //   appClarifai.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-  //     .then(generalModel => {
-  //       return generalModel.predict("https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Balaeniceps_rex_qtl1.jpg/290px-Balaeniceps_rex_qtl1.jpg");
-  //     })
-  //     .then(response => {
-  //       var concepts = response['outputs'][0]['data']['concepts']
-  //       console.log(concepts);
-  //     })
-  // }
-
   onTakePhoto (dataUri) {
     this.setState({
       pic: dataUri
     })
 
-    // console.log(dataUri)
-
-  
-
-    // const block = dataUri.split(';');
-    // const contentType = block[0].split(":")[1];
-    // const realData = block[1].split(",")[1];
-
-    // const blob = this.b64toBlob(realData, contentType);
-
-    // // fd.append('image_data', dataUri)
-    // const formDataToUpload = new FormData();
-    // formDataToUpload.append("image", blob);
-
-    // // const config = { headers: { 'Content-Type': 'multipart/form-data' } };
-
     axios.post('/api/image', {
       picture: dataUri
     })
-    .then(function (response) {
-      console.log(response);
-      const { url } = response.data;
-      
-      appClarifai.models.initModel({id: Clarifai.GENERAL_MODEL, version: "aa7f35c01e0642fda5cf400f543e7c40"})
-        .then(generalModel => {
-          return generalModel.predict(url);
-        })
-        .then(response => {
-          var concepts = response['outputs'][0]['data']['concepts'];
-
-          console.log("concepts", concepts);
-
-          let selectedPredictions = concepts.filter(prediction => prediction.value >= 0.95);
-          
-          console.log("selectedPredictions", selectedPredictions);
-
-          this.setState({
-            selectedPredictions
-          })
-        })
-      
+    .then(response => {
+      appClarifai.models.initModel({id: 'patrimoine', version: "421a18466de4434b99fe78704f644e7c"}).then(customModel => {
+        return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
+      })
+      .then(response => {
+        var concepts = response['outputs'][0]['data']['concepts']
+        console.log("TRAIN IA", concepts);
+        this.setState({selectedPredictions: concepts})
+      })
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .catch(error => {
+      console.error(error);
+    })
 
 
-    // console.log('takePhoto', dataUri);
   }
 
   onCameraError (error) {
@@ -141,24 +100,18 @@ export class App extends React.Component {
           onCameraStop = { () => { this.onCameraStop(); } }
         />
         <h1>Predictions tests</h1>
-        {
+        {/* <div>Results > 0.95</div> */}
+        {/* {
           this.state.selectedPredictions &&
           this.state.selectedPredictions.map(predict => 
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan="2">Results > 0.95</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>{predict.name}</td>
-                        <td>{predict.value}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+              <div>{predict.name}</div>
+              <div>{predict.value}</div>
+            </div>
           )
-        }
+        } */}
+
+        <h2>Il semblerait que tu sois => {this.state.selectedPredictions[0].name}</h2>
       </div>
     );
   }
