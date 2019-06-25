@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-react';
 
 import places from "./data/places";
@@ -6,13 +7,15 @@ import places from "./data/places";
 const styleMap = require('./styleMap.json')
 
 export class GPS extends Component {
-    state = {
-        lng: null,
-        lat: null,
-        isGeolocated: false,
-        basicPlaceInfos: null,
-        polyLinePaths: []
-    }
+  state = {
+    lng: null,
+    lat: null,
+    nearestPlace: null,
+    basicPlaceInfos: null,
+    isGeolocated: false,
+    noNearestPlaceInfos: false,
+    polyLinePaths: []
+  }
 
   componentWillMount() {
     if ("geolocation" in navigator) {
@@ -49,17 +52,17 @@ export class GPS extends Component {
 
     setTimeout(() => {
       places.some(place => {
-        console.log(place)
         const placePoint = new google.maps.LatLng(place.position.lat, place.position.lng);
     
         if (google.maps.geometry.poly.containsLocation(placePoint, paths)) {
-          this.setState({
-            nearestPlace : place.name,
-            placeDescription: place.description,
-            isGeolocated: true
-          })
-          return true;
+
+            this.setState({
+              nearestPlace : place,
+              isGeolocated: true,
+            })
+            return true;
         } else {
+          console.log(google.maps.geometry.poly.containsLocation(placePoint, paths))
           this.setState({
             nearestPlace: "",
             placeDescription: ""
@@ -79,7 +82,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
         ]
       })
-    }, 300)
+    }, 500)
   }
 
   errorGeoloc = error => {
@@ -145,19 +148,37 @@ export class GPS extends Component {
     })
   }
 
+  disableNearestPlace(event) {
+    event.preventDefault();
+    this.setState({ 
+      nearestPlace: "",
+      noNearestPlaceInfos: true 
+    }) 
+  } 
+
+
+  showNearestPlace(event) {
+    event.preventDefault();
+  }
+
   render() {
-    const { lat, lng, polyLinePaths, nearestPlace, placeDescription, gps, zoom, isGeolocated, basicPlaceInfos} = this.state;
+    const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos} = this.state;
     let view; 
-    
     if (lat && lng) {
       view = 
       <div>
         {
-          nearestPlace 
+          nearestPlace && !noNearestPlaceInfos 
           ? 
           <div>
-            <h2>{nearestPlace}</h2>
-            <p>{placeDescription}</p>
+            <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
+            <button onClick={event => this.disableNearestPlace(event)}>Non</button>
+            <Link
+              to={{
+                pathname: "/infobulle",
+                state: { nearestPlace }
+              }}
+            >Oui</Link>
           </div>
           :
           <p>No place found, please go on statue</p>
