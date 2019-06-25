@@ -2,6 +2,7 @@ import React from 'react';
 import axios from "axios";
 import Clarifai from "clarifai";
 import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
+import { Link} from "react-router-dom";
 
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -62,6 +63,7 @@ export class CameraPhoto extends React.Component {
   }
  
   render() {
+    const { nearestPlace } = this.state.place;
     return (
       <div className="App">
         {
@@ -86,7 +88,20 @@ export class CameraPhoto extends React.Component {
             <div>
               {
                 this.state.place &&
-                <h2>Il semblerait que tu sois à {this.state.place.name}</h2>
+                <div>
+                  <h2>Il semblerait que tu sois à {this.state.place.name}</h2>
+                  <p>Souhaites-tu avoir plus d'informations sur ce lieu ?</p>
+                  <div>
+                    <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
+                    <button onClick={event => this.disableNearestPlace(event)}>Non</button>
+                    <Link
+                      to={{
+                        pathname: "/infobulle",
+                        state: { nearestPlace }
+                      }}
+                    >Oui</Link>
+                  </div>
+                </div>
               }
               {
                 this.state.noPlace &&
