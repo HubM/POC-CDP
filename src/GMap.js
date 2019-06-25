@@ -197,6 +197,8 @@ export class GPS extends Component {
           <Map
             google={this.props.google}
             zoom={zoom}
+            zoomControl={false}
+            mapTypeControl={false}
             className={'map'}
             styles={styleMap}
             style={mapStyles}
@@ -257,11 +259,15 @@ export class GPS extends Component {
           {
             basicPlaceInfos &&
             <div className={'basicPlaceInfos'}>
-                <img src={basicPlaceInfos.img} alt={``} />
+              <div>
+                <div className={'basicPlaceInfos__picture'}>
+                  <img src={basicPlaceInfos.img} alt={``} />
+                </div>
                 <div>
                   <h2>{basicPlaceInfos.name}</h2>
                   <p>{basicPlaceInfos.addresse}</p>
                 </div>
+              </div>
             </div>
           }
           
