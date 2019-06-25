@@ -3,6 +3,8 @@ import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-r
 
 import places from "./data/places";
 
+import {ReactComponent as SearchIcon} from './styles/assets/searchIcon.svg'
+
 
 const styleMap = require('./styleMap.json')
 const mapStyles = {
@@ -186,10 +188,11 @@ export class GPS extends Component {
             <p>No place found, please go on statue</p>
           } */}
           <form className={'searchPlace'}>
-            <label>
-              Rechercher
-              <input type='text' placeholder="Exemple: Grand théâtre"></input>
-            </label>
+            <label for="searchInput">Rechercher</label>
+            <div className={'searchPlace__input'}>
+              <input type='text' placeholder="Exemple: Grand théâtre" name="searchInput" />
+              <SearchIcon />
+            </div>
           </form>
           <div className="mapContainer">
             <Map
