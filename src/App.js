@@ -8,6 +8,8 @@ import Infobulle from "./Infobulle";
 
 import { isMobileOrTablet } from "./utils";
 
+import './styles/index.scss';
+
 export class App extends React.Component {
   render() {
     let initialView;
@@ -32,4 +34,8 @@ export class App extends React.Component {
     );
   }
 }  
+
+
+
+
 export default App;
