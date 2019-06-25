@@ -257,9 +257,11 @@ export class GPS extends Component {
           {
             basicPlaceInfos &&
             <div className={'basicPlaceInfos'}>
-              <img src={basicPlaceInfos.img} alt={``} />
-              <h2>{basicPlaceInfos.name}</h2>
-              <p>{basicPlaceInfos.addresse}</p>
+                <img src={basicPlaceInfos.img} alt={``} />
+                <div>
+                  <h2>{basicPlaceInfos.name}</h2>
+                  <p>{basicPlaceInfos.addresse}</p>
+                </div>
             </div>
           }
           
