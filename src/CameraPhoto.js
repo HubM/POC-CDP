@@ -9,15 +9,6 @@ const appClarifai = new Clarifai.App({
   apiKey: "a151eabbd43f493783fd82f203ee48e8"
 })
 
-
-// var localStream;
-
-// onUserMediaSuccess = function(stream) {
-//    // attach to a video element
-//    ...
-//    // keep a reference
-//    localStream = stream;
-// };
 export class CameraPhoto extends React.Component {
   state = {
     pic: null
@@ -58,6 +49,17 @@ export class CameraPhoto extends React.Component {
       console.error(error);
     })
   }
+
+  onCameraError = error => {
+    console.log(error);
+  }
+
+  renewPic = () => {
+    this.setState({
+      photoTaken: false, 
+      noPlace: false
+    })
+  }
  
   render() {
     return (
@@ -66,17 +68,18 @@ export class CameraPhoto extends React.Component {
           !this.state.photoTaken ?
             <div>
               <Camera
-                onTakePhoto = { (dataUri) => { this.onTakePhoto(dataUri); } }
-                idealFacingMode = {FACING_MODES.ENVIRONMENT}
-                idealResolution = {{width: 640, height: 480}}
-                imageType = {IMAGE_TYPES.JPG}
-                imageCompression = {0.97}
-                isMaxResolution = {false}
-                isImageMirror = {false}
-                isSilentMode = {true}
-                isDisplayStartCameraError = {true}
-                isFullscreen = {false}
-                sizeFactor = {1}
+                onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
+                idealFacingMode={FACING_MODES.ENVIRONMENT}
+                idealResolution={{width: 640, height: 480}}
+                imageType={IMAGE_TYPES.JPG}
+                imageCompression={0.97}
+                isMaxResolution={false}
+                isImageMirror={false}
+                isSilentMode={true}
+                isDisplayStartCameraError={false}
+                isFullscreen={false}
+                sizeFactor={1}
+                onCameraError={error => {this.onCameraError(error)}}
               />
             </div>
             : 
@@ -89,7 +92,7 @@ export class CameraPhoto extends React.Component {
                 this.state.noPlace &&
                 <div>
                   <p>Oups, nous ne parvenons pas à trouver la place sur laquelle tu te trouves <span role="img" aria-label="emoji sad">😔</span></p>
-                  <button onClick={() => this.setState({photoTaken: false, noPlace: false})}>Nouvelle photo</button>
+                  <button onClick={this.renewPic}>Nouvelle photo</button>
                 </div>
               }
             </div>

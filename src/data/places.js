@@ -1,5 +1,6 @@
 export default [
   {
+    id: 0,
     name: "La place de la Bourse",
     addresse: "Place de la Bourse, 33000 Bordeaux",
     position: {
@@ -20,6 +21,7 @@ export default [
     }
   },
   {
+    id: 1,
     name: "La cité du vin",
     addresse: "Esplanade de Pontac, 134 Quai de Bacalan, 33300 Bordeaux",
     position: {

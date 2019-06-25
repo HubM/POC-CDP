@@ -10,7 +10,7 @@ export class GPS extends Component {
         lng: null,
         lat: null,
         isGeolocated: false,
-        viewMode: "map",
+        basicPlaceInfos: null,
         polyLinePaths: []
     }
 
@@ -71,7 +71,6 @@ export class GPS extends Component {
       this.setState({
         lng: position.coords.longitude,
         lat: position.coords.latitude,
-        viewMode: "map",
         zoom: 16,
         polyLinePaths: [
           {lat: position.coords.latitude - 0.0003, lng: position.coords.longitude - 0.0003},
@@ -80,7 +79,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
         ]
       })
-    }, 100)
+    }, 300)
   }
 
   errorGeoloc = error => {
@@ -138,15 +137,19 @@ export class GPS extends Component {
   //   })
   // }
 
-  getBasicPlaceInfos = (event) => {
-    console.log("clicked event", event);
+  getBasicPlaceInfos = (place) => {
+    this.setState({
+      basicPlaceInfos: place
+    }, () => {
+      console.log(this.state.basicPlaceInfos)
+    })
   }
 
   render() {
-    const { lat, lng, viewMode, polyLinePaths, nearestPlace, placeDescription, gps, zoom, isGeolocated} = this.state;
+    const { lat, lng, polyLinePaths, nearestPlace, placeDescription, gps, zoom, isGeolocated, basicPlaceInfos} = this.state;
     let view; 
     
-    if (lat && lng && viewMode === "map") {
+    if (lat && lng) {
       view = 
       <div>
         {
@@ -159,73 +162,80 @@ export class GPS extends Component {
           :
           <p>No place found, please go on statue</p>
         }
-        <Map
-          google={this.props.google}
-          zoom={zoom}
-          className={'map'}
-          styles={styleMap}
-          fullscreenControl={false}
-          panControl={false}
-          rotateControl={false}
-          streetViewControl={false}
-          mapTypeControl={'ROADMAP'}
-          scaleControl={false}
-          initialCenter={{lat,lng}}
-        >
-          <Polygon
-            paths={polyLinePaths}
-            strokeColor="#0000FF"
-            strokeOpacity={0.8}
-            strokeWeight={1}
-          />
-          {
-            isGeolocated &&
-            <Marker
-              title={'The marker`s title will appear as a tooltip.'}
-              name={`You`}
-              icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
-              position={{lat, lng}} 
+        <div className="mapContainer">
+          <Map
+            google={this.props.google}
+            zoom={zoom}
+            className={'map'}
+            styles={styleMap}
+            fullscreenControl={false}
+            panControl={false}
+            rotateControl={false}
+            streetViewControl={false}
+            scaleControl={false}
+            initialCenter={{lat,lng}}
+          >
+            <Polygon
+              paths={polyLinePaths}
+              strokeColor="#0000FF"
+              strokeOpacity={0.8}
+              strokeWeight={1}
             />
-          }
-          {
-            places.map( (place,index) => 
+            {
+              isGeolocated &&
               <Marker
-                name={place.name}
-                position={place.position}
-                key={`marker-${place.name}`}
-                onClick={this.getBasicPlaceInfos}
+                title={'The marker`s title will appear as a tooltip.'}
+                name={`You`}
+                icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+                position={{lat, lng}} 
               />
-          )}
+            }
+            {
+              places.map( (place,index) => 
+                <Marker
+                  name={place.name}
+                  position={place.position}
+                  key={`marker-${place.name}`}
+                  onClick={() => {
+                    this.getBasicPlaceInfos({ 
+                      name: place.name, 
+                      addresse: place.addresse, 
+                      img: place.pictures.current.small
+                    })}
+                  }
+                />
+            )}
+            {
+              gps && 
+              <Polyline   
+                geodesic={true}
+                options={{
+                  path: gps.path,
+                  strokeColor: '#34495e',
+                  strokeOpacity: 1,
+                  strokeWeight: 4,
+                  icons: [{
+                    offset: '0',
+                    repeat: '010px'
+                  }],
+                }}
+              />
+            }
+          </Map>
           {
-            gps && 
-            <Polyline   
-              geodesic={true}
-              options={{
-                path: gps.path,
-                strokeColor: '#34495e',
-                strokeOpacity: 1,
-                strokeWeight: 4,
-                icons: [{
-                  offset: '0',
-                  repeat: '010px'
-                }],
-              }}
-            />
+            basicPlaceInfos &&
+            <div style={{position: "absolute"}}>
+              <img src={basicPlaceInfos.img} alt={``} />
+              <h2>{basicPlaceInfos.name}</h2>
+              <p>{basicPlaceInfos.addresse}</p>
+            </div>
           }
-
-
-        </Map>
+          
+        </div>
         <div id="GPS">
 
         </div>
       </div>
-    }
-
-    if (!lat && !lng && viewMode === "decline") {
-      view = 
-        <div>
-          <p>YOU HAVE DECLINE GEOLOC</p>
-        </div>
     }
 
     return (
