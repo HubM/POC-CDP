@@ -1,0 +1,93 @@
+@import './reset';
+
+// COLORS
+$gray: #F6F6FA;
+$darkblue: #0923A8;
+$lightBlue: lighten($darkblue, 30%);
+$leightgrey: #B4B4B4;
+
+// END OF COLORS
+
+// MARGIN PADDING HACKS
+$margin20: 20px;
+$padding20: 20px;
+$margin40: 40px;
+$fullWithout20: calc(100% - 20px);
+$fullWithout40: calc(100% - 40px);
+$fullWithout60: calc(100% - 60px);
+
+// END OF HACKS
+
+
+
+section {
+    width: auto;
+    padding: 0 $padding20;
+}
+
+.mainNav {
+    position: absolute;
+    bottom: 0px;
+    z-index: 1;
+    width: $fullWithout40;
+    background: white;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;   
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: '100%';
+
+    }
+    img{
+        width: 27px;
+        height: 27px;
+    }
+
+    li {
+        margin: 30px 0;
+    }
+
+    a {
+        display: block;
+        padding: 6px 10px;
+        border-radius: 5px;
+        filter: gray;
+        -webkit-filter: grayscale(1);
+        opacity: 0.3;
+        &.activeLink {
+            filter: none;
+            -webkit-filter: grayscale(0);
+            opacity: 1;
+        }
+    }
+}
+
+form {
+    margin: 20px 0px;
+    width: 100%;
+    input {
+        padding: 20px 0 20px 15px;
+        width: $fullWithout20;
+        background-color: $gray;
+        border: 0;
+        font-size: 16px;
+        color: $leightgrey;
+        font-weight: 300;
+    }
+}
+
+.basicPlaceInfos{
+    width: 80%;
+    position: absolute;
+    background: #FFF;
+    border-radius: 5px;
+    display: flex;
+}

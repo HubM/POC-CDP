@@ -4,7 +4,14 @@ import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-r
 
 import places from "./data/places";
 
+
 const styleMap = require('./styleMap.json')
+const mapStyles = {
+  width: 'calc(100% - 40px)',
+  height: '100%',
+  borderTopLeftRadius: '5px',
+  borderTopRightRadius: '5px',
+}
 
 export class GPS extends Component {
   state = {
@@ -167,7 +174,7 @@ export class GPS extends Component {
     if (lat && lng) {
       view = 
       <div>
-        {
+        {/* {
           nearestPlace && !noNearestPlaceInfos 
           ? 
           <div>
@@ -182,13 +189,17 @@ export class GPS extends Component {
           </div>
           :
           <p>No place found, please go on statue</p>
-        }
+        } */}
+        <form>
+          <input type='text' placeholder="Rechercher..."></input>
+        </form>
         <div className="mapContainer">
           <Map
             google={this.props.google}
             zoom={zoom}
             className={'map'}
             styles={styleMap}
+            style={mapStyles}
             fullscreenControl={false}
             panControl={false}
             rotateControl={false}
@@ -245,7 +256,7 @@ export class GPS extends Component {
           </Map>
           {
             basicPlaceInfos &&
-            <div style={{position: "absolute"}}>
+            <div className={'basicPlaceInfos'}>
               <img src={basicPlaceInfos.img} alt={``} />
               <h2>{basicPlaceInfos.name}</h2>
               <p>{basicPlaceInfos.addresse}</p>

@@ -1,28 +1,29 @@
 import React from 'react';
-import { Link} from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import {ReactComponent as LogoMap} from './styles/assets/map.svg'
+import {ReactComponent as LogoScan} from './styles/assets/scan.svg'
+import {ReactComponent as LogoDiscover} from './styles/assets/discover.svg'
 
 export class Home extends React.Component {
     state = {
     }
     render() {
         return (
-        <div className="Home">
-            <p>Welcome on CIDP app</p>
-            <nav>
+        <header className="mainNav">
+            <nav className="navigator">
               <ul>
                 <li>
-                  <Link to="/map">Voir la carte</Link>
+                  <NavLink activeClassName="activeLink" to="/map"><div><LogoMap /></div></NavLink>
                 </li>
                 <li>
-                  <Link to="/camera">CameraPhoto</Link>
+                  <NavLink activeClassName="activeLink" to="/camera"><LogoScan /></NavLink>
                 </li>
                 <li>
-                  <Link to="/infobulle">Infobulle</Link>
+                  <NavLink activeClassName="activeLink" to="/infobulle"><LogoDiscover /></NavLink>
                 </li>
               </ul>
             </nav>
-        </div>
+        </header>
         );
         
     }
