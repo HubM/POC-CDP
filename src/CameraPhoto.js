@@ -87,12 +87,11 @@ export class CameraPhoto extends React.Component {
             : 
             <div>
               {
-                this.state.place &&
+                nearestPlace &&
                 <div>
-                  <h2>Il semblerait que tu sois à {this.state.place.name}</h2>
+                  <h2>Il semblerait que tu sois à {nearestPlace.name}</h2>
                   <p>Souhaites-tu avoir plus d'informations sur ce lieu ?</p>
                   <div>
-                    <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
                     <button onClick={event => this.disableNearestPlace(event)}>Non</button>
                     <Link
                       to={{
