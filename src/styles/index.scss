@@ -5,8 +5,8 @@
 $gray: #F6F6FA;
 $darkblue: #0923A8;
 $lightBlue: lighten($darkblue, 30%);
-$leightgrey: #B4B4B4;
-
+$lightGray: #B4B4B4;
+$textGray: #A6A6A6;
 // END OF COLORS
 
 // MARGIN PADDING HACKS
@@ -16,11 +16,24 @@ $margin40: 40px;
 $fullWithout20: calc(100% - 20px);
 $fullWithout40: calc(100% - 40px);
 $fullWithout60: calc(100% - 60px);
-
 // END OF HACKS
+
+// FONTS
+$fontMain : 'Space Grotesk', Arial, Helvetica, sans-serif;
+// END OF FONTS
+
+body {
+    font-family: $fontMain;
+    overflow-x: hidden;
+    overflow-y: hidden
+}
+
 section {
-    width: auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
     padding: 0 $padding20;
+
 }
 
 .mainNav {
@@ -68,17 +81,24 @@ section {
     }
 }
 
-form {
-    margin: 20px 0px;
-    width: 100%;
+
+.searchPlace {
+    margin: 50px 0px 20px 0px;
+    width: $fullWithout40;
+    label {
+        font-weight: bold;
+    }
+
     input {
-        padding: 20px 0 20px 15px;
         width: $fullWithout20;
+        color: $lightGray;
         background-color: $gray;
-        border: 0;
+        padding: 20px 0 20px 15px;
+        font-family: $fontMain;
+        font-weight: 500;
         font-size: 16px;
-        color: $leightgrey;
-        font-weight: 300;
+        border: 0;
+        margin-top: 15px;
     }
 }
 
@@ -89,7 +109,7 @@ form {
     height: 100%;
 }
 
-.basicPlaceInfos{
+.basicPlaceInfos {
     width: calc(80% - 40px);
     position: absolute;
     bottom: 20%;
@@ -106,13 +126,24 @@ form {
         align-items: center
     }
 
-
-
     &__picture {
         img{
             width: 60px;
             height: 60px;
             margin-right: $margin20;
+            border-radius: 6px;
         }
+    }
+
+    h2 {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 13px;
+        font-weight: 500;
+        color: $textGray;
+        line-height: 1.5;
     }
 }

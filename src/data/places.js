@@ -43,7 +43,7 @@ export default [
   },
   {
     id: 3,
-    name: "L'ECV digital",
+    name: "ECV digital",
     addresse: "5 place Alice Girou, 33300 Bordeaux",
     position: {
       lat: 44.861688099999995,

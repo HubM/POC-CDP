@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
 import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-react';
 
 import places from "./data/places";
@@ -69,7 +68,6 @@ export class GPS extends Component {
             })
             return true;
         } else {
-          console.log(google.maps.geometry.poly.containsLocation(placePoint, paths))
           this.setState({
             nearestPlace: "",
             placeDescription: ""
@@ -150,8 +148,6 @@ export class GPS extends Component {
   getBasicPlaceInfos = (place) => {
     this.setState({
       basicPlaceInfos: place
-    }, () => {
-      console.log(this.state.basicPlaceInfos)
     })
   }
 
@@ -163,7 +159,6 @@ export class GPS extends Component {
     }) 
   } 
 
-
   showNearestPlace(event) {
     event.preventDefault();
   }
@@ -173,113 +168,112 @@ export class GPS extends Component {
     let view; 
     if (lat && lng) {
       view = 
-      <div>
-        {/* {
-          nearestPlace && !noNearestPlaceInfos 
-          ? 
-          <div>
-            <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
-            <button onClick={event => this.disableNearestPlace(event)}>Non</button>
-            <Link
-              to={{
-                pathname: "/infobulle",
-                state: { nearestPlace }
-              }}
-            >Oui</Link>
-          </div>
-          :
-          <p>No place found, please go on statue</p>
-        } */}
-        <form>
-          <input type='text' placeholder="Rechercher..."></input>
-        </form>
-        <div className="mapContainer">
-          <Map
-            google={this.props.google}
-            zoom={zoom}
-            zoomControl={false}
-            mapTypeControl={false}
-            className={'map'}
-            styles={styleMap}
-            style={mapStyles}
-            fullscreenControl={false}
-            panControl={false}
-            rotateControl={false}
-            streetViewControl={false}
-            scaleControl={false}
-            initialCenter={{lat,lng}}
-          >
-            <Polygon
-              paths={polyLinePaths}
-              strokeColor="#0000FF"
-              strokeOpacity={0.8}
-              strokeWeight={1}
-            />
-            {
-              isGeolocated &&
-              <Marker
-                title={'The marker`s title will appear as a tooltip.'}
-                name={`You`}
-                icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
-                position={{lat, lng}} 
-              />
-            }
-            {
-              places.map( (place,index) => 
-                <Marker
-                  name={place.name}
-                  position={place.position}
-                  key={`marker-${place.name}`}
-                  onClick={() => {
-                    this.getBasicPlaceInfos({ 
-                      name: place.name, 
-                      addresse: place.addresse, 
-                      img: place.pictures.current.small
-                    })}
-                  }
-                />
-            )}
-            {
-              gps && 
-              <Polyline   
-                geodesic={true}
-                options={{
-                  path: gps.path,
-                  strokeColor: '#34495e',
-                  strokeOpacity: 1,
-                  strokeWeight: 4,
-                  icons: [{
-                    offset: '0',
-                    repeat: '010px'
-                  }],
+        <div>
+          {/* {
+            nearestPlace && !noNearestPlaceInfos 
+            ? 
+            <div>
+              <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
+              <button onClick={event => this.disableNearestPlace(event)}>Non</button>
+              <Link
+                to={{
+                  pathname: "/infobulle",
+                  state: { nearestPlace }
                 }}
+              >Oui</Link>
+            </div>
+            :
+            <p>No place found, please go on statue</p>
+          } */}
+          <form className={'searchPlace'}>
+            <label>
+              Rechercher
+              <input type='text' placeholder="Exemple: Grand théâtre"></input>
+            </label>
+          </form>
+          <div className="mapContainer">
+            <Map
+              google={this.props.google}
+              zoom={zoom}
+              zoomControl={false}
+              mapTypeControl={false}
+              className={'map'}
+              styles={styleMap}
+              style={mapStyles}
+              fullscreenControl={false}
+              panControl={false}
+              rotateControl={false}
+              streetViewControl={false}
+              scaleControl={false}
+              initialCenter={{lat,lng}}
+            >
+              <Polygon
+                paths={polyLinePaths}
+                strokeColor="#0000FF"
+                strokeOpacity={0.8}
+                strokeWeight={1}
               />
-            }
-          </Map>
-          {
-            basicPlaceInfos &&
-            <div className={'basicPlaceInfos'}>
-              <div>
-                <div className={'basicPlaceInfos__picture'}>
-                  <img src={basicPlaceInfos.img} alt={``} />
-                </div>
+              {
+                isGeolocated &&
+                <Marker
+                  title={'The marker`s title will appear as a tooltip.'}
+                  name={`You`}
+                  icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+                  position={{lat, lng}} 
+                />
+              }
+              {
+                places.map( (place,index) => 
+                  <Marker
+                    name={place.name}
+                    position={place.position}
+                    key={`marker-${place.name}`}
+                    onClick={() => {
+                      this.getBasicPlaceInfos({ 
+                        name: place.name, 
+                        addresse: place.addresse, 
+                        img: place.pictures.current.small
+                      })}
+                    }
+                  />
+              )}
+              {
+                gps && 
+                <Polyline   
+                  geodesic={true}
+                  options={{
+                    path: gps.path,
+                    strokeColor: '#34495e',
+                    strokeOpacity: 1,
+                    strokeWeight: 4,
+                    icons: [{
+                      offset: '0',
+                      repeat: '010px'
+                    }],
+                  }}
+                />
+              }
+            </Map>
+            {
+              basicPlaceInfos &&
+              <div className={'basicPlaceInfos'}>
                 <div>
-                  <h2>{basicPlaceInfos.name}</h2>
-                  <p>{basicPlaceInfos.addresse}</p>
+                  <div className={'basicPlaceInfos__picture'}>
+                    <img src={basicPlaceInfos.img} alt={``} />
+                  </div>
+                  <div>
+                    <h2>{basicPlaceInfos.name}</h2>
+                    <p>{basicPlaceInfos.addresse}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          }
-          
+            }
+          </div>
         </div>
-        <div id="GPS">
-
-        </div>
-      </div>
     }
 
     return (
-      <div>
+      <div className={'mapsView'}>
         {view}
       </div>
     );
