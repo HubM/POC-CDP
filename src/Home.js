@@ -17,6 +17,9 @@ export class Home extends React.Component {
                 <li>
                   <Link to="/camera">CameraPhoto</Link>
                 </li>
+                <li>
+                  <Link to="/infobulle">Infobulle</Link>
+                </li>
               </ul>
             </nav>
         </div>
