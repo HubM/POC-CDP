@@ -18,6 +18,7 @@ $margin40: 40px;
 $fullWithout20: calc(100% - 20px);
 $fullWithout40: calc(100% - 40px);
 $fullWithout60: calc(100% - 60px);
+$fullWithout80: calc(100% - 80px);
 // END OF HACKS
 
 // FONTS
@@ -26,24 +27,21 @@ $fontMain : 'Space Grotesk', Arial, Helvetica, sans-serif;
 
 body {
     font-family: $fontMain;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    overflow: hidden;
 }
 
 section {
     width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    padding: 0 $padding20;
-
+    // height: 100vh;
 }
 
+/////////////////
+// HEADER
+/////////////////
 .mainNav {
-    position: absolute;
-    bottom: 0px;
+    // position: absolute;
+    // bottom: 0px;
     z-index: 1;
-    width: $fullWithout40;
+    width: 100%;
     background: white;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;   
@@ -84,10 +82,17 @@ section {
     }
 }
 
+/////////////////
+// MAP VIEW
+/////////////////
+.mapsView {
+    margin: 0 20px;
+    width: $fullWithout40;
+}
 
 .searchPlace {
     margin: 50px 0px 20px 0px;
-    width: $fullWithout40;
+    width: 100%;
     label {
         font-weight: bold;
     }
@@ -106,6 +111,7 @@ section {
 
     &__input {
         position: relative;
+        overflow: hidden;
         svg {
             position: absolute;
             right: 20px;
@@ -114,11 +120,10 @@ section {
     }
 }
 
-
 .map {
     position: absolute;
     width: 100%;
-    height: 80%!important;
+    height: 100%;
 }
 .basicBotNotif{
     bottom: 15%;
@@ -126,6 +131,12 @@ section {
 .basicTopNotif{
     top: 10%;
     z-index: 2;
+
+.mapContainer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    min-height: 66vh;
 }
 .basicPlaceInfos {
     width: calc(100% - 120px);
@@ -179,4 +190,62 @@ section {
             font-family: $fontMain;
         }
     }
+}
+
+.notifNextoPlace {
+    padding: 16px 20px;
+    background-color: #0923A8;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    width: calc(100% - 80px);
+    z-index: 1;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    svg {
+        margin-right: 20px;
+        width: 35px;
+        height: auto;
+    }
+
+    p {
+        font-size: 13px;
+        color: #FFFFFF;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    
+}
+
+/////////////////
+// NO PLACE FOUND
+/////////////////
+.placeNotFound {
+    background-color: $darkblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__message {
+        text-align: center;
+        line-height: 1.5;
+        color: #FFFFFF;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    svg {
+        margin: 40px 0 30px 0;
+    }
+
+
 }

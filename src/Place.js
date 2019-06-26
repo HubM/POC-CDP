@@ -1,21 +1,23 @@
 
 import React from 'react';
 import BeforeAfterSlider from 'react-before-after-slider';
+import {ReactComponent as PlaceNotFound} from './styles/assets/placeNotFound.svg';
 
-export class Infobulle extends React.Component {
+
+export class Place extends React.Component {
   state = {
   }
 
   componentDidMount() {
     if (this.props.location.state) {
       this.setState({
-        nearestPlace: this.props.location.state.nearestPlace
+        nearestPlace: this.props.location.state
       })
     }
   }
   render() {
     return (
-      <section>
+      <div>
         {
           this.state.nearestPlace 
             ?
@@ -34,12 +36,19 @@ export class Infobulle extends React.Component {
               
             </div>
             : 
-            <p>No</p>
+            <div className={'placeNotFound'}>
+              <div>
+                <p className={'placeNotFound__message'}>Vous n'êtes pas à proximité <br/> d'un totem bleu.</p>
+                <PlaceNotFound />
+              </div>
+
+            </div>
+            
         }
-      </section>
+      </div>
     );
       
   }
 }
 
-export default Infobulle;
+export default Place;

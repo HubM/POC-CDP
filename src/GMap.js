@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-react';
+import { Link } from "react-router-dom";
 
 import places from "./data/places";
 
 import {ReactComponent as SearchIcon} from './styles/assets/searchIcon.svg'
-
+import {ReactComponent as CDPIcon} from './styles/assets/logoCDP.svg';
 
 const styleMap = require('./styleMap.json')
 const mapStyles = {
-  width: 'calc(100% - 40px)',
-  height: '80%',
+  width: '100%',
+  height: '100%',
   borderTopLeftRadius: '5px',
   borderTopRightRadius: '5px',
 }
@@ -53,10 +54,10 @@ export class GPS extends Component {
     const google = this.props.google;
 
     const paths = new google.maps.Polygon({paths: [
-      new google.maps.LatLng(position.coords.latitude - 0.0003, position.coords.longitude - 0.0003),
-      new google.maps.LatLng(position.coords.latitude - 0.0003, position.coords.longitude + 0.0003),
-      new google.maps.LatLng(position.coords.latitude + 0.0003, position.coords.longitude + 0.0003),
-      new google.maps.LatLng(position.coords.latitude + 0.0003, position.coords.longitude - 0.0003),
+      new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude - 0.001),
+      new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude + 0.001),
+      new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude + 0.001),
+      new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude - 0.001),
     ]});
     setTimeout(() => {
       places.some(place => {
@@ -83,10 +84,10 @@ export class GPS extends Component {
         lat: position.coords.latitude,
         zoom: 16,
         polyLinePaths: [
-          {lat: position.coords.latitude - 0.0003, lng: position.coords.longitude - 0.0003},
-          {lat: position.coords.latitude - 0.0003, lng: position.coords.longitude + 0.0003},
-          {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude + 0.0003},
-          {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
+          {lat: position.coords.latitude - 0.001, lng: position.coords.longitude - 0.001},
+          {lat: position.coords.latitude - 0.001, lng: position.coords.longitude + 0.001},
+          {lat: position.coords.latitude + 0.001, lng: position.coords.longitude + 0.001},
+          {lat: position.coords.latitude + 0.001, lng: position.coords.longitude - 0.001}
         ]
       })
     }, 300)
@@ -161,40 +162,38 @@ export class GPS extends Component {
     }) 
   } 
 
-  showNearestPlace(event) {
-    event.preventDefault();
-  }
-
   closeBasicPlaceInfos = () => {
     this.setState({
       basicPlaceInfos: null
     })
   }
 
+
   render() {
     const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos} = this.state;
     let view; 
     if (lat && lng) {
+
       view = 
-        <div style={{height: '100vh'}}>
-          {/* {
+        <div>
+          {
             nearestPlace && !noNearestPlaceInfos 
-            ? 
-            <div>
-              <p>Avoir plus d'informations sur {nearestPlace.name} ?</p>
-              <button onClick={event => this.disableNearestPlace(event)}>Non</button>
+            &&
+            <div className={'notifNextoPlace'}>
               <Link
-                to={{
-                  pathname: "/infobulle",
-                  state: { nearestPlace }
-                }}
-              >Oui</Link>
+              to={{ 
+                pathname: "/place",
+                state: nearestPlace
+              }}
+              className={'notifNextoPlace__container'}
+              >
+                <CDPIcon />
+                <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
+              </Link>
             </div>
-            :
-            <p>No place found, please go on statue</p>
-          } */}
-          <form className={'searchPlace'}>
-            <label for="searchInput">Rechercher</label>
+          }
+          <form className={'searchPlace'} autoComplete={'off'}>
+            <label htmlFor="searchInput">Rechercher</label>
             <div className={'searchPlace__input'}>
               <input type='text' placeholder="Exemple: Grand théâtre" name="searchInput" />
               <SearchIcon />
@@ -299,7 +298,6 @@ export class GPS extends Component {
       </div>
     );
   }
-
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.state.intervalId);
