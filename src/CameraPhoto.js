@@ -66,20 +66,44 @@ export class CameraPhoto extends React.Component {
     // const { nearestPlace } = this.state.place;
     return (
       <div className="App">
+        <div>Scannez</div>
+        <div className={"basicPlaceInfos"}>
+          <div className={"basicPlaceInfos__content"}>
+            {/* <div className={"basicPlaceInfos__picture"}>
+              <img src={basicPlaceInfos.img} alt={``} />
+            </div> */}
+            <div>
+              <h2>yo</h2>
+              {/* <p>{basicPlaceInfos.addresse}</p> */}
+            </div>
+          </div>
+          <div className={"basicPlaceInfos__btns"}>
+            <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
+            {/* {
+              nearestPlace && !noNearestPlaceInfos &&
+              <Link
+                to={{
+                  pathname: "/infobulle",
+                  state: { nearestPlace }
+                }}
+                >Plus d'informations</Link>
+            } */}
+          </div>
+        </div>
         {
           !this.state.photoTaken ?
             <div>
               <Camera
                 onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
                 idealFacingMode={FACING_MODES.ENVIRONMENT}
-                idealResolution={{width: 640, height: 480}}
+                // idealResolution={{width: 640, height: 2000}}
+                isFullscreen={true}
                 imageType={IMAGE_TYPES.JPG}
                 imageCompression={0.97}
                 isMaxResolution={false}
                 isImageMirror={false}
                 isSilentMode={true}
                 isDisplayStartCameraError={false}
-                isFullscreen={false}
                 sizeFactor={1}
                 onCameraError={error => {this.onCameraError(error)}}
               />
