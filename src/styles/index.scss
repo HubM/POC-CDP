@@ -128,6 +128,7 @@ section {
     width: 100%;
     height: 100%;
 }
+
 .basicBotNotif{
     bottom: 15%;
 }
@@ -137,17 +138,13 @@ section {
     z-index: 2;
 }
 
-.loadingMap{
-    width: 100%;
-    background: $lightBlue;
-    height: 100%;
-}
 .mapContainer {
     width: 100%;
     height: 100%;
     position: relative;
     min-height: 66vh;
 }
+
 .basicPlaceInfos {
     width: calc(100% - 120px);
     position: absolute;
@@ -233,6 +230,38 @@ section {
         line-height: 1.5;
     }
     
+}
+
+@keyframes fadeOutIn {
+    from {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0.3;
+    }
+    to {
+        opacity: 1;
+    }
+
+}
+
+.loadingMap {
+    width: 100%;
+    background: $lightBlue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+        animation: fadeOutIn 4s ease-in infinite;
+    }
 }
 
 /////////////////

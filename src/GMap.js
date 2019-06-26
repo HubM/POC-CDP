@@ -10,6 +10,7 @@ import places from "./data/places";
 
 import {ReactComponent as SearchIcon} from './styles/assets/searchIcon.svg'
 import {ReactComponent as CDPIcon} from './styles/assets/logoCDP.svg';
+import {ReactComponent as LoaderMap} from './styles/assets/loadingLogo.svg';
 
 const styleMap = require('./styleMap.json')
 const mapStyles = {
@@ -84,8 +85,8 @@ export class GPS extends Component {
       })
 
       this.setState({
-        lng: position.coords.longitude,
-        lat: position.coords.latitude,
+        // lng: position.coords.longitude,
+        // lat: position.coords.latitude,
         zoom: 16,
         polyLinePaths: [
           {lat: position.coords.latitude - 0.001, lng: position.coords.longitude - 0.001},
@@ -184,7 +185,7 @@ export class GPS extends Component {
     if (lat && lng) {
 
       view = 
-        <div>
+        <div className={'mapsView'}>
           {
             nearestPlace && !noNearestPlaceInfos 
             &&
@@ -323,11 +324,13 @@ export class GPS extends Component {
 
     else {
       view = 
-      <div className={'loadingMap'}>Loading...</div>
+      <div className={'loadingMap'}>
+        <LoaderMap />
+      </div>
     }
 
     return (
-      <div className={'mapsView'}>
+      <div>
         {view}
       </div>
     );
