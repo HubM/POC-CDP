@@ -1,7 +1,6 @@
 import React from 'react';
 import { HashRouter as Router, Route} from "react-router-dom";
 
-import Nav from "./Nav";
 import GMap from "./GMap";
 import CameraPhoto from "./CameraPhoto";
 import Place from "./Place";

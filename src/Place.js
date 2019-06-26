@@ -2,6 +2,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import BeforeAfterSlider from 'react-before-after-slider';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+
 import {ReactComponent as PlaceNotFound} from './styles/assets/placeNotFound.svg';
 
 import Nav from "./Nav";
@@ -23,18 +25,33 @@ export class Place extends React.Component {
         {
           this.state.nearestPlace 
             ?
-            <div>
-              <BeforeAfterSlider
-                before={this.state.nearestPlace.pictures.current.big}
-                beforeClassName={"placeOldPicture"}
-                after={this.state.nearestPlace.pictures.old}
-                afterClassName={"placeNextPicture"}
-                width={640}
-                height={480}
-              />
-              <h1>{this.state.nearestPlace.name}</h1>
-              <p className={"placeAddress"}>{this.state.nearestPlace.addresse}</p>
-            </div>
+            <Tabs>
+              <TabList>
+                <Tab>Avant / Après</Tab>
+                <Tab>Infos</Tab>
+                <Tab>Fun facts</Tab>
+              </TabList>
+
+              <TabPanel>
+                <div className={'beforeAfterSlider'}>
+                  <BeforeAfterSlider
+                    before={this.state.nearestPlace.pictures.current.big}
+                    beforeClassName={"placeOldPicture"}
+                    after={this.state.nearestPlace.pictures.old}
+                    afterClassName={"placeNextPicture"}
+                    width={window.innerWidth}
+                    height={window.innerHeight - 200}
+                  />
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <h2>Infos pannel</h2>
+              </TabPanel>
+              <TabPanel>
+                <h2>Fun facts</h2>
+              </TabPanel>              
+            </Tabs>
+    
             : 
             <div className={'placeNotFound'}>
               <div style={{textAlign: "center"}}>
