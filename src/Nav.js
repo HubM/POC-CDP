@@ -1,8 +1,9 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-import {ReactComponent as LogoMap} from './styles/assets/map.svg'
-import {ReactComponent as LogoScan} from './styles/assets/scan.svg'
-import {ReactComponent as LogoDiscover} from './styles/assets/discover.svg'
+import {ReactComponent as LogoMap} from './styles/assets/map.svg';
+import {ReactComponent as LogoScan} from './styles/assets/scan.svg';
+// import {ReactComponent as LogoDiscover} from './styles/assets/discover.svg';
+import {ReactComponent as LogoPlace} from './styles/assets/place.svg';
 
 export class Nav extends React.Component {
   state = {}
@@ -19,7 +20,7 @@ export class Nav extends React.Component {
               <NavLink activeClassName="activeLink" to="/camera"><LogoScan /></NavLink>
             </li>
             <li>
-              <NavLink activeClassName="activeLink" to="/place"><LogoDiscover /></NavLink>
+              <NavLink activeClassName="activeLink" to="/place"><LogoPlace /></NavLink>
             </li>
           </ul>
         </nav>
