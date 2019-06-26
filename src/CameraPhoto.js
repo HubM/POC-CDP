@@ -96,15 +96,15 @@ export class CameraPhoto extends React.Component {
               <Camera
                 onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
                 idealFacingMode={FACING_MODES.ENVIRONMENT}
-                // idealResolution={{width: 640, height: 2000}}
-                isFullscreen={true}
+                idealResolution={{width: 640, height: 2000}}
+                // isFullscreen={true}
                 imageType={IMAGE_TYPES.JPG}
                 imageCompression={0.97}
-                isMaxResolution={false}
+                isMaxResolution={true}
                 isImageMirror={false}
                 isSilentMode={true}
                 isDisplayStartCameraError={false}
-                sizeFactor={1}
+                // sizeFactor={0.25}
                 onCameraError={error => {this.onCameraError(error)}}
               />
             </div>
