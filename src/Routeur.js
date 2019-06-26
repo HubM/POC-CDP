@@ -8,20 +8,17 @@ import Place from "./Place";
 
 import { isMobileOrTablet } from "./utils";
 
-import { EmitProvider } from "react-emit";
 
 export class Routeur extends React.Component {
   render() {
     let initialView;
     // if (isMobileOrTablet()) {
       initialView = 
-        <EmitProvider>
-          <Router>
-            <Route exact path='/' component={GMap} />
-            <Route path="/camera" component={CameraPhoto} />
-            <Route path="/place" component={Place} />
-          </Router>
-        </EmitProvider>
+        <Router>
+          <Route exact path='/' component={GMap} />
+          <Route path="/camera" component={CameraPhoto} />
+          <Route path="/place" component={Place} />
+        </Router>
     // } else {
     //   initialView = 
     //     <div>

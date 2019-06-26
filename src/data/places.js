@@ -90,6 +90,98 @@ export default [
       },
       old: "https://ecolobordeauxblog.files.wordpress.com/2015/07/la-future-cite-des-civilisations-du-vin-en-construction.jpg"
     } 
+  },
+  {
+    id: 5,
+    name: "Gare d'Orléans",
+    addresse: "7 Quai des Queyries, 33100 Bordeaux",
+    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-bleu.svg",
+    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-orange.svg",
+    position: {
+      lat: 44.841750,
+      lng: -0.561097,
+    },
+    content: {
+      introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      histoire: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      funfact:"Girondiiiiins"
+    },
+    pictures: {
+      current: {
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+      },
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+    } 
+  },
+  {
+    id: 6,
+    name: "Base sous-marine",
+    addresse: "Boulevard Alfred Daney, 33300 Bordeaux",
+    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-bleu.svg",
+    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-orange.svg",
+    position: {
+      lat: 44.868631,
+      lng: -0.557441,
+    },
+    content: {
+      introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      histoire: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      funfact:"Girondiiiiins"
+    },
+    pictures: {
+      current: {
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+      },
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+    } 
+  },
+  {
+    id: 6,
+    name: "Cité du vin",
+    addresse: "Esplanade de Pontac, 134 Quai de Bacalan, 33300 Bordeaux",
+    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-bleu.svg",
+    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-orange.svg",
+    position: {
+      lat: 44.862479,
+      lng: -0.550922,
+    },
+    content: {
+      introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      histoire: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      funfact:"Girondiiiiins"
+    },
+    pictures: {
+      current: {
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+      },
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+    } 
+  },
+  {
+    id: 7,
+    name: "",
+    addresse: "Esplanade de Pontac, 134 Quai de Bacalan, 33300 Bordeaux",
+    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-bleu.svg",
+    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-orange.svg",
+    position: {
+      lat: 44.862479,
+      lng: -0.550922,
+    },
+    content: {
+      introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      histoire: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
+      funfact:"Girondiiiiins"
+    },
+    pictures: {
+      current: {
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+      },
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+    } 
   }
 ]
   

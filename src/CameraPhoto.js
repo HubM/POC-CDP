@@ -16,7 +16,8 @@ const appClarifai = new Clarifai.App({
 
 export class CameraPhoto extends React.Component {
   state = {
-    pic: null
+    pic: null,
+    basicPlaceInfos: true,
   }
 
   onTakePhoto (dataUri) {
@@ -28,7 +29,7 @@ export class CameraPhoto extends React.Component {
       picture: dataUri
     })
     .then(response => {
-      appClarifai.models.initModel({id: 'patrimoine', version: "421a18466de4434b99fe78704f644e7c"}).then(customModel => {
+      appClarifai.models.initModel({id: 'patrimoine', version: "9f14cc08c679496797e8eb3ad3486406"}).then(customModel => {
         return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
       })
       .then(response => {
@@ -65,35 +66,35 @@ export class CameraPhoto extends React.Component {
       noPlace: false
     })
   }
+
+  closeBasicPlaceInfos = () => {
+    this.setState({
+      basicPlaceInfos: null
+    })
+  }
  
   render() {
     // const { nearestPlace } = this.state.place;
     return (
       <div className="App">
         <div>Scannez</div>
+        {this.state.basicPlaceInfos ?
         <div className={"basicPlaceInfos basicTopNotif"}>
-          <div className={"basicPlaceInfos__content"}>
-            <div className={"basicPlaceInfos__picture"}>
+          <div className={"basicPlaceInfos__picture"}>
+            <div className={"basicPlaceInfos__content"}>
               <img src={blueScan} alt={``} />
+              <div>
+                <p>Scannez les monuments situés à proximité de nos totems bleus !</p>
+              </div>
             </div>
-            <div>
-              <p>Scannez les monuments situés à proximité de nos totems bleus !</p>
-              {/* <p>{basicPlaceInfos.addresse}</p> */}
+            <div className={"basicPlaceInfos__btns"}>
+              <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
             </div>
-          </div>
-          <div className={"basicPlaceInfos__btns"}>
-            <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
-            {/* {
-              nearestPlace && !noNearestPlaceInfos &&
-              <Link
-                to={{
-                  pathname: "/infobulle",
-                  state: { nearestPlace }
-                }}
-                >Plus d'informations</Link>
-            } */}
           </div>
         </div>
+        :
+        null
+        }
         {
           !this.state.photoTaken ?
             <div>
@@ -123,7 +124,7 @@ export class CameraPhoto extends React.Component {
                     <button onClick={event => this.disableNearestPlace(event)}>Non</button>
                     <Link
                       to={{
-                        pathname: "/infobulle",
+                        pathname: "/place",
                         state: this.state.place
                       }}
                     >Oui</Link>
