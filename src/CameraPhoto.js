@@ -3,6 +3,9 @@ import axios from "axios";
 import Clarifai from "clarifai";
 import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
 import { Link } from "react-router-dom";
+// import {ReactComponent as BlueScan} from './styles/assets/blue_scan.svg'
+
+import blueScan from './styles/assets/blue_scan.svg';
 
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -67,13 +70,13 @@ export class CameraPhoto extends React.Component {
     return (
       <div className="App">
         <div>Scannez</div>
-        <div className={"basicPlaceInfos"}>
+        <div className={"basicPlaceInfos basicTopNotif"}>
           <div className={"basicPlaceInfos__content"}>
-            {/* <div className={"basicPlaceInfos__picture"}>
-              <img src={basicPlaceInfos.img} alt={``} />
-            </div> */}
+            <div className={"basicPlaceInfos__picture"}>
+              <img src={blueScan} alt={``} />
+            </div>
             <div>
-              <h2>yo</h2>
+              <p>Scannez les monuments situés à proximité de nos totems bleus !</p>
               {/* <p>{basicPlaceInfos.addresse}</p> */}
             </div>
           </div>
@@ -100,7 +103,7 @@ export class CameraPhoto extends React.Component {
                 // isFullscreen={true}
                 imageType={IMAGE_TYPES.JPG}
                 imageCompression={0.97}
-                isMaxResolution={true}
+                isMaxResolution={false}
                 isImageMirror={false}
                 isSilentMode={true}
                 isDisplayStartCameraError={false}
