@@ -85,8 +85,8 @@ export class GPS extends Component {
       })
 
       this.setState({
-        // lng: position.coords.longitude,
-        // lat: position.coords.latitude,
+        lng: position.coords.longitude,
+        lat: position.coords.latitude,
         zoom: 16,
         polyLinePaths: [
           {lat: position.coords.latitude - 0.001, lng: position.coords.longitude - 0.001},
