@@ -9,7 +9,7 @@ import {ReactComponent as SearchIcon} from './styles/assets/searchIcon.svg'
 const styleMap = require('./styleMap.json')
 const mapStyles = {
   width: 'calc(100% - 40px)',
-  height: '100%',
+  height: '80%',
   borderTopLeftRadius: '5px',
   borderTopRightRadius: '5px',
 }
@@ -170,7 +170,7 @@ export class GPS extends Component {
     let view; 
     if (lat && lng) {
       view = 
-        <div>
+        <div style={{height: '100vh'}}>
           {/* {
             nearestPlace && !noNearestPlaceInfos 
             ? 

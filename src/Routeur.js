@@ -13,7 +13,8 @@ import './styles/index.scss';
 export class Routeur extends React.Component {
   render() {
     let initialView;
-    if (isMobileOrTablet()) {
+    let nav;
+    // if (isMobileOrTablet()) {
       initialView = 
         <Router>
           <Nav />
@@ -21,12 +22,13 @@ export class Routeur extends React.Component {
           <Route path="/camera" component={CameraPhoto} />
           <Route path="/infobulle" component={Infobulle} />
         </Router>
-    } else {
-      initialView = 
-        <div>
-        <h1>you should use this website on your mobile</h1>
-        </div>
-    }
+    // } else {
+    //   initialView = 
+    //     <div>
+    //     <h1>you should use this website on your mobile</h1>
+    //     </div>
+    // }
+    nav = <Nav />
     return (
       <section>
         {initialView}
