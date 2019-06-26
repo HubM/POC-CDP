@@ -265,7 +265,7 @@ export class GPS extends Component {
             </Map>
             {
               basicPlaceInfos &&
-              <div className={"basicPlaceInfos"}>
+              <div className={"basicPlaceInfos basicBotNotif"}>
                 <div className={"basicPlaceInfos__content"}>
                   <div className={"basicPlaceInfos__picture"}>
                     <img src={basicPlaceInfos.img} alt={``} />
