@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Polygon, Marker, Polyline }  from 'google-maps-react';
 import { Link } from "react-router-dom";
 
+import {ReactComponent as LogoMap} from './styles/assets/map.svg';
+import {ReactComponent as LogoScan} from './styles/assets/scan.svg';
+import {ReactComponent as LogoPlace} from './styles/assets/place.svg';
+
 import places from "./data/places";
 
 import {ReactComponent as SearchIcon} from './styles/assets/searchIcon.svg'
@@ -26,9 +30,10 @@ export class GPS extends Component {
     polyLinePaths: []
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if ("geolocation" in navigator) {
       const { google } = this.props;
+
       let intervalId =  navigator.geolocation.watchPosition(this.successGeoloc, this.errorGeoloc, {
         enableHighAccuracy: true,
         maximumAge: 3000,
@@ -50,25 +55,24 @@ export class GPS extends Component {
   }
 
   successGeoloc = position => {
-    
     const google = this.props.google;
-
     const paths = new google.maps.Polygon({paths: [
       new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude - 0.001),
       new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude + 0.001),
       new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude + 0.001),
       new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude - 0.001),
     ]});
+
     setTimeout(() => {
       places.some(place => {
         const placePoint = new google.maps.LatLng(place.position.lat, place.position.lng);
     
         if (google.maps.geometry.poly.containsLocation(placePoint, paths)) {
-
             this.setState({
               nearestPlace : place,
               isGeolocated: true,
             })
+            
             return true;
         } else {
           this.setState({
@@ -90,7 +94,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.001, lng: position.coords.longitude - 0.001}
         ]
       })
-    }, 800)
+    }, 300)
   }
 
   errorGeoloc = error => {
@@ -290,6 +294,24 @@ export class GPS extends Component {
               </div>
             }
           </div>
+          <footer className="mainNav">
+          <nav className="navigator">
+            <ul>
+              <li>
+                <Link className="activeLink" to="/"><div><LogoMap /></div></Link>
+              </li>
+              <li>
+                <Link to="/camera"><LogoScan /></Link>
+              </li>
+              <li>
+                <Link to={{
+                  pathname: "/place",
+                  state: nearestPlace
+                }}><LogoPlace /></Link>
+              </li>
+            </ul>
+          </nav>
+        </footer>
         </div>
     }
 

@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import BeforeAfterSlider from 'react-before-after-slider';
 import {ReactComponent as PlaceNotFound} from './styles/assets/placeNotFound.svg';
 
+import Nav from "./Nav";
+
 
 export class Place extends React.Component {
   state = {}
@@ -12,8 +14,9 @@ export class Place extends React.Component {
       this.setState({
         nearestPlace: this.props.location.state
       })
-    }
+    } 
   }
+
   render() {
     return (
       <div>
@@ -46,8 +49,8 @@ export class Place extends React.Component {
               </div>
 
             </div>
-            
         }
+        <Nav />
       </div>
     );
       
