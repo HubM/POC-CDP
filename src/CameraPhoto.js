@@ -3,9 +3,10 @@ import axios from "axios";
 import Clarifai from "clarifai";
 import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
 import { Link } from "react-router-dom";
-// import {ReactComponent as BlueScan} from './styles/assets/blue_scan.svg'
 
 import blueScan from './styles/assets/blue_scan.svg';
+
+import Nav from "./Nav";
 
 import 'react-html5-camera-photo/build/css/index.css';
 
@@ -138,7 +139,7 @@ export class CameraPhoto extends React.Component {
               }
             </div>
         }
-
+        <Nav />
       </div>
     );
   }

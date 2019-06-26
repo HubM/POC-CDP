@@ -2,7 +2,6 @@ import React from 'react';
 import {NavLink} from "react-router-dom";
 import {ReactComponent as LogoMap} from './styles/assets/map.svg';
 import {ReactComponent as LogoScan} from './styles/assets/scan.svg';
-// import {ReactComponent as LogoDiscover} from './styles/assets/discgover.svg';
 import {ReactComponent as LogoPlace} from './styles/assets/place.svg';
 
 export class Nav extends React.Component {

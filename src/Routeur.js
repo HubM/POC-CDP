@@ -7,19 +7,21 @@ import CameraPhoto from "./CameraPhoto";
 import Place from "./Place";
 
 import { isMobileOrTablet } from "./utils";
-import './styles/index.scss';
+
+import { EmitProvider } from "react-emit";
 
 export class Routeur extends React.Component {
   render() {
     let initialView;
     // if (isMobileOrTablet()) {
       initialView = 
-        <Router>
-          <Route exact path='/' component={GMap} />
-          <Route path="/camera" component={CameraPhoto} />
-          <Route path="/place" component={Place} />
-          <Nav />
-        </Router>
+        <EmitProvider>
+          <Router>
+            <Route exact path='/' component={GMap} />
+            <Route path="/camera" component={CameraPhoto} />
+            <Route path="/place" component={Place} />
+          </Router>
+        </EmitProvider>
     // } else {
     //   initialView = 
     //     <div>
