@@ -167,10 +167,15 @@ export class GPS extends Component {
       basicPlaceInfos: null
     })
   }
+  // _mapFullyLoaded = () => {
+  //   this.setState({
+  //     mapFullyLoaded: true
+  //   })
+  // }
 
 
   render() {
-    const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos} = this.state;
+    const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos, mapFullyLoaded} = this.state;
     let view; 
     if (lat && lng) {
 
@@ -201,6 +206,7 @@ export class GPS extends Component {
           </form>
           <div className="mapContainer">
             <Map
+              // onReady={this._mapFullyLoaded()}
               google={this.props.google}
               zoom={zoom}
               zoomControl={false}
@@ -291,6 +297,11 @@ export class GPS extends Component {
             }
           </div>
         </div>
+    }
+
+    else {
+      view = 
+      <div className={'loadingMap'}>Loading...</div>
     }
 
     return (
