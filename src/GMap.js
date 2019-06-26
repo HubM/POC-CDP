@@ -90,7 +90,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.001, lng: position.coords.longitude - 0.001}
         ]
       })
-    }, 300)
+    }, 800)
   }
 
   errorGeoloc = error => {
@@ -224,9 +224,9 @@ export class GPS extends Component {
               {
                 isGeolocated &&
                 <Marker
-                  title={'The marker`s title will appear as a tooltip.'}
+                  title={'Your position.'}
                   name={`You`}
-                  icon={"http://maps.google.com/mapfiles/ms/icons/blue-dot.png"}
+                  icon={"http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
                   position={{lat, lng}} 
                 />
               }
@@ -234,6 +234,7 @@ export class GPS extends Component {
                 places.map( (place,index) => 
                   <Marker
                     name={place.name}
+                    icon={place.marker}
                     position={place.position}
                     key={`marker-${place.name}`}
                     onClick={() => {
