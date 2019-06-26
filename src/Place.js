@@ -40,7 +40,7 @@ export class Place extends React.Component {
               <div style={{textAlign: "center"}}>
                 <p className={'placeNotFound__message'}>Vous n'êtes pas à proximité <br/> d'un totem bleu.</p>
                 <PlaceNotFound />
-                <p className={'placeNotFound__help'}>Situez les sur la carte pour vous y rendre, et en apprendre plus sur les monuments</p>
+                <p className={'placeNotFound__help'}>Situez-les sur la carte pour vous y rendre, et en apprendre plus sur les monuments</p>
                 <Link
                   to={{
                     pathname: "/",
