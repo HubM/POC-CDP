@@ -15,7 +15,8 @@
     "react-dom": "^16.8.6",
     "react-html5-camera-photo": "^1.4.3",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-tabs": "^3.0.0"
   },
   "proxy": "http://localhost:4000",
   "scripts": {

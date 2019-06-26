@@ -1,5 +1,7 @@
 @import './reset';
+@import '../../node_modules/react-tabs/style/react-tabs.scss';
 @import './fonts';
+
 
 // COLORS
 $gray: #F6F6FA;
@@ -9,6 +11,7 @@ $lightGray: #B4B4B4;
 $textGray: #A6A6A6;
 $uiGray: #EBEBF4;
 $uiRed: #FE3F39;
+$uiOrange: #FF4C00;
 // END OF COLORS
 
 // MARGIN PADDING HACKS
@@ -270,4 +273,46 @@ section {
         background-color: #FFFFFF;
         border-radius: 5px;
     }
+}
+
+
+.react-tabs__tab-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: none;
+}
+
+.react-tabs__tab {
+    padding: 20px;
+    font-size: 15px;
+    font-family: $fontMain;
+    font-weight: 700;
+    color: #CBCBCB;
+    outline: 0;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+.react-tabs__tab:focus {
+    box-shadow: none;
+    border-color: transparent;
+    outline: none;
+    border-bottom: 4px solid $uiOrange;
+}
+
+.react-tabs__tab--selected {
+    color: $uiOrange;
+    border: none;
+    border-bottom: 4px solid $uiOrange;
+}
+
+.styles_wrapper__3KXDn {
+    top: 0 !important;
+}
+
+.styles_content__1Phom {
+    cursor: url('https://m2groupe4.ecvdigitalbdx.fr/assets/img/pointer.svg') 20 12, auto !important;	
 }

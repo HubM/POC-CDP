@@ -338,6 +338,6 @@ export class GPS extends Component {
   }
 }
 
-export default GoogleApiWrapper({
+  export default GoogleApiWrapper({
   apiKey: 'AIzaSyAop-zibd_mZlm2-z2Vu0N9qZXMYZqP17c'
 })(GPS);
