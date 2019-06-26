@@ -9,8 +9,8 @@ import {ReactComponent as CDPIcon} from './styles/assets/logoCDP.svg';
 
 const styleMap = require('./styleMap.json')
 const mapStyles = {
-  width: 'calc(100% - 40px)',
-  height: '80%',
+  width: '100%',
+  height: '100%',
   borderTopLeftRadius: '5px',
   borderTopRightRadius: '5px',
 }
@@ -175,14 +175,14 @@ export class GPS extends Component {
     if (lat && lng) {
 
       view = 
-        <div style={{height: '100vh'}}>
+        <div>
           {
             nearestPlace && !noNearestPlaceInfos 
             &&
             <div className={'notifNextoPlace'}>
               <Link
               to={{ 
-                pathname: "/infobulle",
+                pathname: "/place",
                 state: nearestPlace
               }}
               className={'notifNextoPlace__container'}

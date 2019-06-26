@@ -4,9 +4,8 @@ import './styles/index.scss';
 
 export class App extends React.Component {
   render() {
-    
     return (
-        <Routeur />
+      <Routeur />
     );
   }
 }  
