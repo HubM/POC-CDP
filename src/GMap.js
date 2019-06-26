@@ -10,6 +10,7 @@ const styleMap = require('./styleMap.json')
 const mapStyles = {
   width: 'calc(100% - 40px)',
   height: '100%',
+  maxHeight: "100vh",
   borderTopLeftRadius: '5px',
   borderTopRightRadius: '5px',
 }
@@ -49,6 +50,7 @@ export class GPS extends Component {
   }
 
   successGeoloc = position => {
+    
     const google = this.props.google;
 
     const paths = new google.maps.Polygon({paths: [
@@ -57,7 +59,6 @@ export class GPS extends Component {
       new google.maps.LatLng(position.coords.latitude + 0.0003, position.coords.longitude + 0.0003),
       new google.maps.LatLng(position.coords.latitude + 0.0003, position.coords.longitude - 0.0003),
     ]});
-
     setTimeout(() => {
       places.some(place => {
         const placePoint = new google.maps.LatLng(place.position.lat, place.position.lng);
@@ -89,7 +90,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
         ]
       })
-    }, 500)
+    }, 300)
   }
 
   errorGeoloc = error => {
@@ -163,6 +164,12 @@ export class GPS extends Component {
 
   showNearestPlace(event) {
     event.preventDefault();
+  }
+
+  closeBasicPlaceInfos = () => {
+    this.setState({
+      basicPlaceInfos: null
+    })
   }
 
   render() {
@@ -259,15 +266,27 @@ export class GPS extends Component {
             </Map>
             {
               basicPlaceInfos &&
-              <div className={'basicPlaceInfos'}>
-                <div>
-                  <div className={'basicPlaceInfos__picture'}>
+              <div className={"basicPlaceInfos"}>
+                <div className={"basicPlaceInfos__content"}>
+                  <div className={"basicPlaceInfos__picture"}>
                     <img src={basicPlaceInfos.img} alt={``} />
                   </div>
                   <div>
                     <h2>{basicPlaceInfos.name}</h2>
                     <p>{basicPlaceInfos.addresse}</p>
                   </div>
+                </div>
+                <div className={"basicPlaceInfos__btns"}>
+                  <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
+                  {/* {
+                    nearestPlace && !noNearestPlaceInfos &&
+                    <Link
+                      to={{
+                        pathname: "/infobulle",
+                        state: { nearestPlace }
+                      }}
+                      >Plus d'informations</Link>
+                  } */}
                 </div>
               </div>
             }

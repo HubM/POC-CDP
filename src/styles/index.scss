@@ -7,6 +7,8 @@ $darkblue: #0923A8;
 $lightBlue: lighten($darkblue, 30%);
 $lightGray: #B4B4B4;
 $textGray: #A6A6A6;
+$uiGray: #EBEBF4;
+$uiRed: #FE3F39;
 // END OF COLORS
 
 // MARGIN PADDING HACKS
@@ -119,17 +121,17 @@ section {
 }
 
 .basicPlaceInfos {
-    width: calc(80% - 40px);
+    width: calc(100% - 120px);
     position: absolute;
-    bottom: 20%;
-    left: 10%;
+    bottom: 15%;
+    left: 40px;
     display: block;
     padding: 20px;
     margin: 0 auto;
     border-radius: 5px;
     background: #FFF;
 
-    & > div {
+    &__content {
         display: flex; 
         justify-content: center;
         align-items: center
@@ -154,5 +156,21 @@ section {
         font-weight: 500;
         color: $textGray;
         line-height: 1.5;
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        border-top: 1px solid $uiGray;
+
+        button {
+            cursor: pointer;
+            padding: 20px 0 0 0;
+            font-weight: 500;
+            color: $uiRed;
+            font-size: 13px;
+            font-family: $fontMain;
+        }
     }
 }
