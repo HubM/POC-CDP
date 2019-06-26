@@ -4,7 +4,7 @@ import {ReactComponent as LogoMap} from './styles/assets/map.svg'
 import {ReactComponent as LogoScan} from './styles/assets/scan.svg'
 import {ReactComponent as LogoDiscover} from './styles/assets/discover.svg'
 
-export class Home extends React.Component {
+export class Nav extends React.Component {
     state = {
     }
     render() {
@@ -13,7 +13,7 @@ export class Home extends React.Component {
             <nav className="navigator">
               <ul>
                 <li>
-                  <NavLink activeClassName="activeLink" to="/map"><div><LogoMap /></div></NavLink>
+                  <NavLink exact activeClassName="activeLink" to="/"><div><LogoMap /></div></NavLink>
                 </li>
                 <li>
                   <NavLink activeClassName="activeLink" to="/camera"><LogoScan /></NavLink>
@@ -29,4 +29,4 @@ export class Home extends React.Component {
     }
 }
 
-export default Home;
+export default Nav;

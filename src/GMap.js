@@ -89,7 +89,7 @@ export class GPS extends Component {
           {lat: position.coords.latitude + 0.0003, lng: position.coords.longitude - 0.0003}
         ]
       })
-    }, 500)
+    }, 2000)
   }
 
   errorGeoloc = error => {
