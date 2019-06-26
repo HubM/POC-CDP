@@ -7,9 +7,10 @@ export class Infobulle extends React.Component {
   }
 
   componentDidMount() {
+    console.log(this.props);
     if (this.props.location.state) {
       this.setState({
-        nearestPlace: this.props.location.state.nearestPlace
+        nearestPlace: this.props.location.state
       })
     }
   }

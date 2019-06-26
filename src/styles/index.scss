@@ -18,6 +18,7 @@ $margin40: 40px;
 $fullWithout20: calc(100% - 20px);
 $fullWithout40: calc(100% - 40px);
 $fullWithout60: calc(100% - 60px);
+$fullWithout80: calc(100% - 80px);
 // END OF HACKS
 
 // FONTS
@@ -114,7 +115,6 @@ section {
     }
 }
 
-
 .map {
     position: absolute;
     width: 100%;
@@ -174,4 +174,35 @@ section {
             font-family: $fontMain;
         }
     }
+}
+
+.notifNextoPlace {
+
+    width: $fullWithout80;
+    padding: 16px 20px;
+    background-color: $darkblue; 
+    border-radius: 5px;
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    a {
+        text-decoration: none;
+    }
+    svg {
+        margin-right: 20px;
+        width: 35px;
+        height: auto;
+    }
+
+    p {
+        font-size: 13px;
+        color: #FFFFFF;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+    
 }
