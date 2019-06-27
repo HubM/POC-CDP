@@ -243,7 +243,8 @@ export class GPS extends Component {
                     icon={place.marker}
                     position={place.position}
                     key={`marker-${place.name}`}
-                    onClick={() => {
+                    onClick={(event) => {
+                      console.log(event)
                       this.getBasicPlaceInfos({ 
                         name: place.name, 
                         addresse: place.addresse, 
