@@ -360,7 +360,6 @@ export default [
     name: "CIAP Bordeaux Patrimoine",
     addresse: "4 Place de la Bourse, 33000 Bordeaux",
     marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/CIAP-ORANGE.svg",
-    // activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/saint-michel-orange.svg",
     position: {
       lat: 44.840973,
       lng: -0.570354,
