@@ -3,8 +3,8 @@ export default [
     id: 0,
     name: "Place de la Bourse",
     addresse: "Place de la Bourse, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-orange.svg",
     position: {
       lat: 44.8414563,
       lng: -0.570378
@@ -22,19 +22,19 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/place-de-la-bourse.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/place-de-la-bourse-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/place-de-la-bourse.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/place-de-la-bourse-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/apres.jpg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/avant.jpg"
+      present: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/apres.jpg",
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/avant.jpg"
     }
   },
   {
     id: 1,
     name: "Le Grand Théâtre",
     addresse: "Place de la Comédie, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/theatre-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/theatre-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/theatre-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/theatre-orange.svg",
     position: {
       lat: 44.842511,
       lng: -0.574477
@@ -52,8 +52,8 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/grand-theatre.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/grand-theatre.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/grand-theatre.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/grand-theatre.jpg"
       },
       old: "https://ecolobordeauxblog.files.wordpress.com/2015/07/la-future-cite-des-civilisations-du-vin-en-construction.jpg"
     }
@@ -62,8 +62,8 @@ export default [
     id: 3,
     name: "ECV Digital",
     addresse: "5 place Alice Girou, 33300 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/ecv-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/ecv-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/ecv-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/ecv-orange.svg",
     position: {
       lat: 44.8616,
       lng: -0.5549,
@@ -85,15 +85,15 @@ export default [
         big: "https://cdn.civitatis.com/francia/burdeos/galeria/museo-vino.jpg"
       },
       present: "",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.png"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.png"
     },
   },
   {
     id: 4,
     name: "Place des Quinconces",
     addresse: "Place des Quinconces, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/tour-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/tour-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/tour-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/tour-orange.svg",
     position: {
       lat: 44.845420,
       lng: -0.574615,
@@ -111,8 +111,8 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/quinconces.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/quinconces-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/quinconces.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/quinconces-590.jpg"
       },
       old: "https://ecolobordeauxblog.files.wordpress.com/2015/07/la-future-cite-des-civilisations-du-vin-en-construction.jpg"
     } 
@@ -121,8 +121,8 @@ export default [
     id: 5,
     name: "Gare d'Orléans",
     addresse: "7 Quai des Queyries, 33100 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cinema-orange.svg",
     position: {
       lat: 44.841750,
       lng: -0.561097,
@@ -134,19 +134,19 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/orleans.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/orlean-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/orleans.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/orlean-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+      present: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
     } 
   },
   {
     id: 6,
     name: "Base sous-marine",
     addresse: "Boulevard Alfred Daney, 33300 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-bleu.svg",
+    activemarker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-orange.svg",
     position: {
       lat: 44.868631,
       lng: -0.557441,
@@ -158,18 +158,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/base-sous-marine.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/base-sous-marine-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/base-sous-marine.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/base-sous-marine-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 7,
     name: "Cité du vin",
     addresse: "Esplanade de Pontac, 134 Quai de Bacalan, 33300 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/cite-du-vin-orange.svg",
     position: {
       lat: 44.862479,
       lng: -0.550922,
@@ -181,18 +181,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/cite-du-vin.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/cite-du-vin-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/cite-du-vin.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/cite-du-vin-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 8,
     name: "Hangar Darwin",
     addresse: "87 Quai des Queyries, 33100 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-orange.svg",
+    marker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-bleu.svg",
+    activemarker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-orange.svg",
     position: {
       lat: 44.848823,
       lng: -0.559675,
@@ -204,18 +204,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/darwin.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/darwin-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/darwin.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/darwin-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 9,
     name: "Grosse cloche de Bordeaux",
     addresse: "45 Rue Saint-James, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/grosse-cloche-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/grosse-cloche-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/grosse-cloche-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/grosse-cloche-orange.svg",
     position: {
       lat: 44.835273,
       lng: -0.571356,
@@ -233,19 +233,19 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/grosse-cloche.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/grosse-cloche-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/grosse-cloche.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/grosse-cloche-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/apres.png",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/avant.png"
+      present: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/apres.png",
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/avant.png"
     } 
   },
   {
     id: 10,
     name: "Cathédrale Saint-André de Bordeaux",
     addresse: "Place Pey Berland, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pey-berland-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pey-berland-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pey-berland-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pey-berland-orange.svg",
     position: {
       lat: 44.837788,
       lng: -0.576639,
@@ -257,18 +257,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/pey-berland.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/pey-berland-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/pey-berland.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/pey-berland-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 11,
     name: "Pont Jacques Chaban Delmas",
     addresse: "Pont Jacques Chaban Delmas, 33300 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-chaban-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-chaban-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-chaban-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-chaban-orange.svg",
     position: {
       lat: 44.859263,
       lng: -0.554525,
@@ -280,18 +280,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/pont-chaband.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/pont-chaband-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/pont-chaband.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/pont-chaband-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 12,
     name: "Pont de Pierre",
     addresse: "49 Quai Richelieu, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-de-pierre-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-de-pierre-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-de-pierre-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/pont-de-pierre-orange.svg",
     position: {
       lat: 44.840193,
       lng: -0.560693,
@@ -303,18 +303,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/pont-de-pierre.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/pont-de-pierre-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/pont-de-pierre.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/pont-de-pierre-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 13,
     name: "Porte de Bourgogne",
     addresse: "Pl. de Bir Hakeim, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/porte-bourgogne-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/porte-bourgogne-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/porte-bourgogne-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/porte-bourgogne-orange.svg",
     position: {
       lat: 44.836193,
       lng: -0.566575,
@@ -326,18 +326,18 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/porte-caillau.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/porte-cailhau-590.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/porte-caillau.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/porte-cailhau-590.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 14,
     name: "Basilique de Saint-Michel",
     addresse: "Place Duburg, 33800 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/saint-michel-bleu.svg",
-    activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/saint-michel-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/saint-michel-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/saint-michel-orange.svg",
     position: {
       lat: 44.834366,
       lng: -0.564380,
@@ -349,17 +349,17 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   },
   {
     id: 15,
     name: "CIAP Bordeaux Patrimoine",
     addresse: "4 Place de la Bourse, 33000 Bordeaux",
-    marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/CIAP-ORANGE.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/CIAP-ORANGE.svg",
     position: {
       lat: 44.840973,
       lng: -0.570354,
@@ -372,10 +372,10 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
-        big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
       },
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
     } 
   }
 ]
