@@ -78,13 +78,8 @@ export default [
         small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/ecv_image.jpg",
         big: "https://cdn.civitatis.com/francia/burdeos/galeria/museo-vino.jpg"
       },
-<<<<<<< HEAD
       present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/apres.jpg",
       old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.png"
-=======
-      present: "",
-      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.png"
->>>>>>> c21e52514aef44a218d4365bf85ff577ad82ea17
     },
   },
   {
