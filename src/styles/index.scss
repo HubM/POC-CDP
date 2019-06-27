@@ -37,6 +37,14 @@ section {
     // height: 100vh;
 }
 
+
+.pageTitle {
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    margin: 35px 0;
+}
+
 /////////////////
 // HEADER
 /////////////////
@@ -309,15 +317,6 @@ section {
 /////////////////
 // PLACE INFOS
 /////////////////
-.placeInfos {
-    h1 {
-        font-weight: 700;
-        font-size: 15px;
-        text-align: center;
-        margin: 35px 0;
-    }
-}
-
 .react-tabs__tab-list {
     display: flex;
     justify-content: space-between;
@@ -367,17 +366,20 @@ section {
     cursor: url('https://m2groupe4.ecvdigitalbdx.fr/assets/img/pointer.svg') 20 12, auto !important;	
 }
 
+.placeCard {
+    width: calc(100% - 80px);
+    margin: 0 20px 20px 20px;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 5px;
+}
+
 
 .placeInfos__infos {
     background: $gray;
     padding: 20px 0;
 
     li {
-        width: calc(100% - 80px);
-        margin: 0 20px;
-        padding: 20px;
-        background: #FFFFFF;
-        border-radius: 5px;
 
         h2 {
             font-size: 15px;
@@ -392,10 +394,11 @@ section {
             font-weight: 500;
         }
         img {
-            // width: 295px;
+            width: 295px;
             height: 295px;
             display: block;
-            width: 100%;
+            margin: 0 auto;
+            border-radius: 5px;
         }
     }
 
@@ -407,4 +410,9 @@ section {
             padding-left: 20px;
         }
     }
+}
+
+
+.placeInfos__infos__history {
+    margin-bottom: 0;
 }

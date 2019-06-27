@@ -27,7 +27,7 @@ export class Place extends React.Component {
           nearestPlace 
             ?
             <div className={'placeInfos'}>
-              <h1>{nearestPlace.name}</h1>
+              <h1 className={'pageTitle'}>{nearestPlace.name}</h1>
               <Tabs>
                 <TabList>
                   <Tab>Avant / Après</Tab>
@@ -49,21 +49,25 @@ export class Place extends React.Component {
                 </TabPanel>
                 <TabPanel>
                   <ul className={'placeInfos__infos'}>
-                    <li>
+                    <li className={'placeCard'}>
                       <img src={nearestPlace.pictures.current.big} alt={`${nearestPlace.name}`} />
                     </li>
-                    <li className={'placeInfos__infos__colored'}>
+                    <li className={'placeCard placeInfos__infos__colored'}>
                       <h2>En bref</h2>
                       <p>{nearestPlace.content.introduction}</p>
                     </li>
-                    <li className={'placeInfos__infos__history'}>
+                    <li className={'placeCard placeInfos__infos__history'}>
                       <h2>Un peu d'histoire</h2>
                       <p>{nearestPlace.content.histoire}</p>
                     </li>
                   </ul>
                 </TabPanel>
                 <TabPanel>
-                  <h2>Fun facts</h2>
+                  <ul className={'placeInfos__funFacts'}>
+                    <li className={'placeCard'}>
+                      <h2>Fun facts</h2>
+                    </li>
+                  </ul>
                 </TabPanel>              
               </Tabs>
             </div>
