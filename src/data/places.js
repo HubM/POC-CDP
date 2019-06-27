@@ -140,7 +140,7 @@ export default [
     name: "Base sous-marine",
     addresse: "Boulevard Alfred Daney, 33300 Bordeaux",
     marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-bleu.svg",
-    activemarker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-orange.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/base-sous-marine-orange.svg",
     position: {
       lat: 44.868631,
       lng: -0.557441,
@@ -185,8 +185,8 @@ export default [
     id: 8,
     name: "Hangar Darwin",
     addresse: "87 Quai des Queyries, 33100 Bordeaux",
-    marker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-bleu.svg",
-    activemarker: "httpss://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-orange.svg",
+    marker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-bleu.svg",
+    activemarker: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/darwin-orange.svg",
     position: {
       lat: 44.848823,
       lng: -0.559675,
