@@ -375,27 +375,26 @@ section {
     padding: 20px;
     background: #FFFFFF;
     border-radius: 5px;
+
+    h2 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 13px;
+        color: $textGray;
+        line-height: 1.5;
+        font-weight: 500;        
+    }
 }
 
 
 .placeInfos__infos {
-    background: $gray;
-    padding: 20px 0;
+
 
     li {
-
-        h2 {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        p {
-            font-size: 13px;
-            color: $textGray;
-            line-height: 1.5;
-            font-weight: 500;
-        }
         img {
             width: 295px;
             height: 295px;
@@ -404,8 +403,6 @@ section {
             border-radius: 5px;
         }
     }
-
-
 
     &__colored {
         p {
@@ -418,4 +415,25 @@ section {
 
 .placeInfos__infos__history {
     margin-bottom: 0;
+}
+
+
+.placeInfos__infos,
+.placeInfos__funFacts {
+    background: $gray;
+    padding: 20px 0; 
+}
+
+.noFunFacts {
+    background: $gray;
+    min-height: 66vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+        padding: 20px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+    }
 }

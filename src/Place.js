@@ -63,11 +63,26 @@ export class Place extends React.Component {
                   </ul>
                 </TabPanel>
                 <TabPanel>
-                  <ul className={'placeInfos__funFacts'}>
-                    <li className={'placeCard'}>
-                      <h2>Fun facts</h2>
-                    </li>
-                  </ul>
+                  {
+                    nearestPlace.content.funfact.length > 0 
+                    ? 
+                    <ul className={'placeInfos__funFacts'}>
+                      {
+                        nearestPlace.content.funfact.map(fun => (                          
+                          <li className={'placeCard'}>
+                            <h2>{fun.creator_name}, {fun.creator_age} ans</h2>
+                            <p>{fun.text}</p>
+                          </li>
+                        ))
+                      }
+                   
+                    </ul>
+                    : 
+                    <div className={"noFunFacts"}>
+                      <p>Pas de funfacts pour ce monument <span role="img" aria-label="emoji confuse">😕</span></p>
+                    </div>
+                  }
+           
                 </TabPanel>              
               </Tabs>
             </div>
