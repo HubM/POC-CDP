@@ -38,7 +38,7 @@ export class Place extends React.Component {
                 <TabPanel>
                   <div className={'placeInfos__beforeAfterSlider'}>
                     <BeforeAfterSlider
-                      before={nearestPlace.pictures.current.big}
+                      before={nearestPlace.pictures.present}
                       beforeClassName={"placeOldPicture"}
                       after={nearestPlace.pictures.old}
                       afterClassName={"placeNextPicture"}

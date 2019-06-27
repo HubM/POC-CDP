@@ -25,8 +25,8 @@ export default [
         small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/place-de-la-bourse.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/place-de-la-bourse-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/avant.svg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/apres.svg"
+      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/apres.jpg",
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/place_bourse/avant.jpg"
     }
   },
   {
