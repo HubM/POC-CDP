@@ -77,14 +77,15 @@ export class CameraPhoto extends React.Component {
     // const { nearestPlace } = this.state.place;
     return (
       <div className="App">
-        <div>Scannez</div>
+        <div className="pageTitle">Scannez</div>
         {this.state.basicPlaceInfos ?
         <div className={"basicPlaceInfos basicTopNotif"}>
           <div className={"basicPlaceInfos__picture"}>
             <div className={"basicPlaceInfos__content"}>
               <img src={blueScan} alt={``} />
               <div>
-                <p>Scannez les monuments situés à proximité de nos totems bleus !</p>
+                <p>Scannez les monuments situés à proximité de nos totems bleus, pour en apprendre plus sur eux !</p>
+                <p>Utilisez la carte pour situer les totems bleus.</p>
               </div>
             </div>
             <div className={"basicPlaceInfos__btns"}>

@@ -15,7 +15,7 @@ export default [
       funfact: "Auparavant, la Place de la Bourse a eu plusieurs noms : Place Royale, Place de la Liberté et même Place Impériale."
     },
     pictures: {
-      blue: {
+      current: {
         small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/place-de-la-bourse.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/place-de-la-bourse-590.jpg"
       },
@@ -109,7 +109,7 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/orlean.jpg",
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/orleans.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/orlean-590.jpg"
       },
       present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg",
@@ -295,7 +295,7 @@ export default [
     },
     pictures: {
       current: {
-        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/porte-cailhau.jpg",
+        small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/porte-caillau.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/porte-cailhau-590.jpg"
       },
       old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
