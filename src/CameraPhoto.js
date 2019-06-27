@@ -33,8 +33,7 @@ export class CameraPhoto extends React.Component {
     })
     .then(response => {
       appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
-        // return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
-        return customModel.predict('http://www.bordeaux.fr/images/ebx/fr/lieu/3293/format5/bourse2_1.jpg')
+        return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
       })
       .then(response => {
         this.setState({
