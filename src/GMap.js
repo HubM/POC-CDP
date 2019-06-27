@@ -154,6 +154,7 @@ export class GPS extends Component {
   // }
 
   getBasicPlaceInfos = (place) => {
+    console.log(place);
     this.setState({
       basicPlaceInfos: place
     })
