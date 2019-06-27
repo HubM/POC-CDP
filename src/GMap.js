@@ -182,12 +182,15 @@ export class GPS extends Component {
     if (isCIAPActive) {
       view =
         <div className={"notification basicBotNotif CIAP"}>
+          <h1>CIAP</h1>
           <div className={'CIAP__horaires'}>
             <h2>Horaires</h2>
             <p className={'blueText'}>Du lundi au samedi :</p>
-            <p>9h - 13h / 14h18h30</p>
+            <p>9h - 13h / 14h-18h30</p>
             <p className={'blueText'}>Dimanche et jours fériés :</p>
-            <p>9h - 13h / 14h18h30</p>
+            <p style={{marginBottom: 15}}>9h - 13h / 14h-17h</p>
+            <p>Fermé le 25 décembre et le 1er janvier.</p>
+            <p>Accessible en français, anglais, espagnol.</p>
           </div>
           <div className={'CIAP__addresse'}>
             <h2>Adresse</h2>
