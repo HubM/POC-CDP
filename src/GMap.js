@@ -59,10 +59,10 @@ export class GPS extends Component {
   successGeoloc = position => {
     const google = this.props.google;
     const paths = new google.maps.Polygon({paths: [
-      new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude - 0.001),
-      new google.maps.LatLng(position.coords.latitude - 0.001, position.coords.longitude + 0.001),
-      new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude + 0.001),
-      new google.maps.LatLng(position.coords.latitude + 0.001, position.coords.longitude - 0.001),
+      new google.maps.LatLng(position.coords.latitude - 0.0006, position.coords.longitude - 0.0006),
+      new google.maps.LatLng(position.coords.latitude - 0.0006, position.coords.longitude + 0.0006),
+      new google.maps.LatLng(position.coords.latitude + 0.0006, position.coords.longitude + 0.0006),
+      new google.maps.LatLng(position.coords.latitude + 0.0006, position.coords.longitude - 0.0006),
     ]});
 
     setTimeout(() => {
@@ -90,10 +90,10 @@ export class GPS extends Component {
         lat: position.coords.latitude,
         zoom: 16,
         polyLinePaths: [
-          {lat: position.coords.latitude - 0.001, lng: position.coords.longitude - 0.001},
-          {lat: position.coords.latitude - 0.001, lng: position.coords.longitude + 0.001},
-          {lat: position.coords.latitude + 0.001, lng: position.coords.longitude + 0.001},
-          {lat: position.coords.latitude + 0.001, lng: position.coords.longitude - 0.001}
+          {lat: position.coords.latitude - 0.0006, lng: position.coords.longitude - 0.0006},
+          {lat: position.coords.latitude - 0.0006, lng: position.coords.longitude + 0.0006},
+          {lat: position.coords.latitude + 0.0006, lng: position.coords.longitude + 0.0006},
+          {lat: position.coords.latitude + 0.0006, lng: position.coords.longitude - 0.0006}
         ]
       })
     }, 300)
