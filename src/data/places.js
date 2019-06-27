@@ -1,7 +1,7 @@
 export default [
   {
     id: 0,
-    name: "La place de la Bourse",
+    name: "Place de la Bourse",
     addresse: "Place de la Bourse, 33000 Bordeaux",
     marker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-bleu.svg",
     activemarker: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/pictos-svg/fontaine-orange.svg",

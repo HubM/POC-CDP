@@ -469,3 +469,26 @@ section {
         }
     }
 }
+
+.placeDiscovered {
+    padding: 0 0 20px 0;
+    .notification__picture {
+        text-align: center;
+    }
+
+    img {
+        margin: 20px 0;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    & > div {
+        padding: 0 30px;
+    }
+}

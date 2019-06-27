@@ -68,8 +68,8 @@ export class Place extends React.Component {
                     ? 
                     <ul className={'placeInfos__funFacts'}>
                       {
-                        nearestPlace.content.funfact.map(fun => (                          
-                          <li className={'placeCard'}>
+                        nearestPlace.content.funfact.map((fun, index) => (                          
+                          <li className={'placeCard'} key={index}>
                             <h2>{fun.creator_name}, {fun.creator_age} ans</h2>
                             <p>{fun.text}</p>
                           </li>

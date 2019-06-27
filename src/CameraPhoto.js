@@ -4,10 +4,10 @@ import Clarifai from "clarifai";
 import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
 import { Link } from "react-router-dom";
 
-import blueScan from './styles/assets/blue_scan.svg';
-
 import {ReactComponent as ScanOrange} from './styles/assets/orange_scan.svg';
 import {ReactComponent as BlueScan} from './styles/assets/blue_scan.svg';
+
+import places from "./data/places";
 
 import Nav from "./Nav";
 
@@ -32,20 +32,25 @@ export class CameraPhoto extends React.Component {
       picture: dataUri
     })
     .then(response => {
-      appClarifai.models.initModel({id: 'patrimoine', version: "9f14cc08c679496797e8eb3ad3486406"}).then(customModel => {
-        return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
+      appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
+        // return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
+        return customModel.predict('http://www.bordeaux.fr/images/ebx/fr/lieu/3293/format5/bourse2_1.jpg')
       })
       .then(response => {
         this.setState({
           photoTaken: true
         })
 
-        var concepts = response['outputs'][0]['data']['concepts']
-        console.log("TRAIN IA", concepts);
-      
+        var concepts = response['outputs'][0]['data']['concepts'];
+
         if (concepts[0].value >= 0.6) {
+
+          const place = places.filter(placeItem => placeItem.name === concepts[0].name).flat();
+
           this.setState({
-            place: concepts[0]
+            place: place[0]
+          }, () => {
+            console.log("NEW STATE", this.state.place)
           })
         } else {
           this.setState({
@@ -104,7 +109,7 @@ export class CameraPhoto extends React.Component {
             <Camera
               onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
               idealFacingMode={FACING_MODES.ENVIRONMENT}
-              idealResolution={{width: 640, height: 2000}}
+              idealResolution={{width: 640, height: 600}}
               // isFullscreen={true}
               imageType={IMAGE_TYPES.JPG}
               imageCompression={0.97}
@@ -119,10 +124,10 @@ export class CameraPhoto extends React.Component {
           <div>
             {
               place &&
-              <div className={"notification scanNotif basicBotNotif"}>
+              <div className={"notification scanNotif placeDiscovered basicTopNotif"}>
                 <div className={"notification__picture"}>
                   <div className={"notification__content"}>
-                    <img src={place.img} alt={``} />
+                    <img src={place.pictures.current.small} alt={`${place.name}`} />
                   </div>
                   <div>
                     <h2>{place.name}</h2>
@@ -131,7 +136,12 @@ export class CameraPhoto extends React.Component {
                   </div>
                 </div>
                 <div className={"notification__btns"}>
-                  <button onClick={this.closeBasicPlaceInfos}>Découvrir</button>
+                  <Link
+                    to={{
+                      pathname: '/place',
+                      state: this.state.place
+                    }}
+                  >Découvrir</Link>
                 </div>
               </div>
             }
