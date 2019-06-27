@@ -179,7 +179,38 @@ export class GPS extends Component {
   render() {
     const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos, isCIAPActive } = this.state;
     let view; 
-    if (lat && lng) {
+    if (isCIAPActive) {
+      view =
+        <div className={"notification basicBotNotif CIAP"}>
+          <h1>CIAP</h1>
+          <div className={'CIAP__horaires'}>
+            <h2>Horaires</h2>
+            <p className={'blueText'}>Du lundi au samedi :</p>
+            <p>9h - 13h / 14h-18h30</p>
+            <p className={'blueText'}>Dimanche et jours fériés :</p>
+            <p style={{marginBottom: 15}}>9h - 13h / 14h-17h</p>
+            <p>Fermé le 25 décembre et le 1er janvier.</p>
+            <p>Accessible en français, anglais, espagnol.</p>
+          </div>
+          <div className={'CIAP__addresse'}>
+            <h2>Adresse</h2>
+            <p className={'blueText'}>Centre d'interprétation Bordeaux Patrimoine Mondial - CIAP</p>
+            <p>4 place de la Bourse <br /> 33000 Bordeaux
+            </p>
+          </div>
+          <div className={'CIAP__Téléphone'}>
+            <h2>Téléphone</h2>
+            <a href="tel:+33556480424">+33 5 56 48 04 24</a>
+          </div>
+          <div className={'CIAP__tarifs'}>
+            <h2>Tarifs</h2>
+            <p><span className={'blueText'}>Entrée libre</span> et <span className={'blueText'}>gratuite</span> dans l'exposition</p>
+          </div>
+          <div class="notification__btns">
+            <button onClick={() => this.setState({isCIAPActive: false})}>Fermer</button>
+          </div>
+        </div>
+    } else if (lat && lng) {
 
       view = 
         <div className={'mapsView'}>
@@ -233,7 +264,7 @@ export class GPS extends Component {
                 <Marker
                   title={'Your position.'}
                   name={`You`}
-                  icon={"http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
+                  icon={"https://m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
                   position={{lat, lng}} 
                 />
               }
@@ -292,35 +323,6 @@ export class GPS extends Component {
                 </div>
                 <div className={"notification__btns"}>
                   <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
-                </div>
-              </div>
-            }
-            {
-              isCIAPActive &&
-              <div className={"notification basicBotNotif CIAP"}>
-                <div className={'CIAP__horaires'}>
-                  <h2>Horaires</h2>
-                  <p className={'blueText'}>Du lundi au samedi :</p>
-                  <p>9h - 13h / 14h18h30</p>
-                  <p className={'blueText'}>Dimanche et jours fériés :</p>
-                  <p>9h - 13h / 14h18h30</p>
-                </div>
-                <div className={'CIAP__addresse'}>
-                  <h2>Adresse</h2>
-                  <p className={'blueText'}>Centre d'interprétation Bordeaux Patrimoine Mondial - CIAP</p>
-                  <p>4 place de la Bourse <br /> 33000 Bordeaux
-                  </p>
-                </div>
-                <div className={'CIAP__Téléphone'}>
-                  <h2>Téléphone</h2>
-                  <a href="tel:+33556480424">+33 5 56 48 04 24</a>
-                </div>
-                <div className={'CIAP__tarifs'}>
-                  <h2>Tarifs</h2>
-                  <p><span className={'blueText'}>Entrée libre</span> et <span className={'blueText'}>gratuite</span> dans l'exposition</p>
-                </div>
-                <div class="notification__btns">
-                  <button onClick={() => this.setState({isCIAPActive: false})}>Fermer</button>
                 </div>
               </div>
             }
