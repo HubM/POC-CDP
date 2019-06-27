@@ -45,6 +45,77 @@ section {
     margin: 35px 0;
 }
 
+.notification {
+    width: calc(100% - 120px);
+    position: absolute;
+    left: 40px;
+    display: block;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background: #FFF;
+
+    h2 {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 13px;
+        font-weight: 500;
+        color: $textGray;
+        line-height: 1.5;
+    }
+
+    &__content {
+        display: flex; 
+        justify-content: center;
+        align-items: center
+    }
+
+    &__picture {
+        img{
+            width: 60px;
+            height: 60px;
+            margin-right: $margin20;
+            border-radius: 6px;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        border-top: 1px solid $uiGray;
+
+        button,
+        a {
+            cursor: pointer;
+            padding: 20px 0 0 0;
+            font-weight: 500;
+            color: $uiRed;
+            font-size: 13px;
+            font-family: $fontMain;
+            text-decoration: none;
+        }
+
+
+        &.multiple {
+            justify-content: space-around;
+            text-align: center;
+
+            a, button {
+                flex-basis: 50%;
+                padding-bottom: 20px;
+            }
+
+            button:first-of-type {
+                border-right: 1px solid $uiGray;
+            }
+        }
+    }
+}
+
 /////////////////
 // HEADER
 /////////////////
@@ -142,60 +213,6 @@ section {
     height: 100%;
     position: relative;
     min-height: 66vh;
-}
-
-.basicPlaceInfos {
-    width: calc(100% - 120px);
-    position: absolute;
-    left: 40px;
-    display: block;
-    padding: 20px;
-    margin: 0 auto;
-    border-radius: 5px;
-    background: #FFF;
-
-    &__content {
-        display: flex; 
-        justify-content: center;
-        align-items: center
-    }
-
-    &__picture {
-        img{
-            width: 60px;
-            height: 60px;
-            margin-right: $margin20;
-            border-radius: 6px;
-        }
-    }
-
-    h2 {
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
-
-    p {
-        font-size: 13px;
-        font-weight: 500;
-        color: $textGray;
-        line-height: 1.5;
-    }
-
-    &__btns {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        border-top: 1px solid $uiGray;
-
-        button {
-            cursor: pointer;
-            padding: 20px 0 0 0;
-            font-weight: 500;
-            color: $uiRed;
-            font-size: 13px;
-            font-family: $fontMain;
-        }
-    }
 }
 
 .basicBotNotif{
@@ -392,8 +409,6 @@ section {
 
 
 .placeInfos__infos {
-
-
     li {
         img {
             width: 295px;
@@ -435,5 +450,22 @@ section {
         padding: 20px;
         background-color: #FFFFFF;
         border-radius: 5px;
+    }
+}
+
+
+/////////////////
+// CAMERA
+/////////////////
+.scanNotif {
+    padding-bottom: 0;
+    .notification__content {
+        flex-direction: column;
+
+        svg {
+            width: 29px;
+            height: auto;
+            margin: 0 0 20px 0;
+        }
     }
 }

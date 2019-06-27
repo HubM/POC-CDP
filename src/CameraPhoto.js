@@ -5,7 +5,9 @@ import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
 import { Link } from "react-router-dom";
 
 import blueScan from './styles/assets/blue_scan.svg';
-import orangeScan from './styles/assets/orange_scan.svg';
+
+import {ReactComponent as ScanOrange} from './styles/assets/orange_scan.svg';
+import {ReactComponent as BlueScan} from './styles/assets/blue_scan.svg';
 
 import Nav from "./Nav";
 
@@ -70,27 +72,28 @@ export class CameraPhoto extends React.Component {
 
   closeBasicPlaceInfos = () => {
     this.setState({
-      basicPlaceInfos: null
+      basicPlaceInfos: null,
     })
   }
  
   render() {
-    // const { nearestPlace } = this.state.place;
+    const { place, noPlace } = this.state;
     return (
       <div className="App">
         <div className="pageTitle">Scannez</div>
         {this.state.basicPlaceInfos ?
-        <div className={"basicPlaceInfos basicTopNotif"}>
-          <div className={"basicPlaceInfos__picture"}>
-            <div className={"basicPlaceInfos__content"}>
-              <img src={blueScan} alt={``} />
+        <div className={"notification scanNotif basicTopNotif"}>
+          <div className={"notification__picture"}>
+            <div className={"notification__content"}>
+              <BlueScan />
               <div>
                 <p>Scannez les monuments situés à proximité de nos totems bleus, pour en apprendre plus sur eux !</p>
                 <p>Utilisez la carte pour situer les totems bleus.</p>
               </div>
             </div>
-            <div className={"basicPlaceInfos__btns"}>
+            <div className={"notification__btns multiple"}>
               <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
+              <Link to={'/'}>Voir la carte</Link>
             </div>
           </div>
         </div>
@@ -115,37 +118,35 @@ export class CameraPhoto extends React.Component {
           </div>
           <div>
             {
-              this.state.place &&
-              <div className={"basicPlaceInfos basicBotNotif"}>
-                <div className={"basicPlaceInfos__content"}>
-                  <div className={"basicPlaceInfos__picture"}>
-                    <img src={this.state.place.img} alt={``} />
+              place &&
+              <div className={"notification scanNotif basicBotNotif"}>
+                <div className={"notification__picture"}>
+                  <div className={"notification__content"}>
+                    <img src={place.img} alt={``} />
                   </div>
                   <div>
-                    <h2>{this.state.name}</h2>
-                    <p>Le monument a été détecté ! <br /></p>
+                    <h2>{place.name}</h2>
+                    <p>Le monument a été détecté !</p>
                     <p>Vous pouvez maintenant en découvrir plus à son sujet.</p>
                   </div>
                 </div>
-                <div className={"basicPlaceInfos__btns"}>
+                <div className={"notification__btns"}>
                   <button onClick={this.closeBasicPlaceInfos}>Découvrir</button>
                 </div>
               </div>
             }
             {
-              this.state.noPlace &&
-               <div className={"basicPlaceInfos basicTopNotif"}>
-                <div className={"basicPlaceInfos__content"}>
-                  <div className={"basicPlaceInfos__picture"}>
-                    <img src={orangeScan} alt={``} />
-                  {/* </div> */}
-                  {/* <div> */}
-                    <h2>{this.state.name}</h2>
+              noPlace &&
+               <div className={"notification scanNotif basicTopNotif"}>
+                <div className={"notification__picture"}>
+                  <div className={"notification__content"}>
+                    <ScanOrange />
                     <p>Nous ne reconnaissons pas le monument... <br /> Êtes-vous bien à côté d'un totem bleu ? Réessayez ou regarder la carte pour voir où ils se trouvent.</p>
                   </div>
                 </div>
-                <div className={"basicPlaceInfos__btns"}>
-                  <button onClick={this.closeBasicPlaceInfos}>Réessayer</button>
+                <div className={"notification__btns multiple"}>
+                  <button onClick={() => this.setState({ noPlace: null })}>Réessayer</button>
+                  <Link to={'/'}>Voir la carte</Link>
                 </div>
               </div>
             }

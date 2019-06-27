@@ -190,18 +190,18 @@ export class GPS extends Component {
           {
             nearestPlace && !noNearestPlaceInfos 
             &&
-            <div className={'notifNextoPlace'}>
-              <Link
-              to={{ 
-                pathname: "/place",
-                state: nearestPlace
-              }}
-              className={'notifNextoPlace__container'}
-              >
-                <CDPIcon />
-                <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
-              </Link>
-            </div>
+            <Link
+            to={{ 
+              pathname: "/place",
+              state: nearestPlace
+            }}
+            className={'notifNextoPlace'}
+            >
+              <div className={'notifNextoPlace__container'}>
+                  <CDPIcon />
+                  <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
+              </div>
+            </Link>
           }
           <form className={'searchPlace'} autoComplete={'off'}>
             <label htmlFor="searchInput">Rechercher</label>
@@ -277,9 +277,9 @@ export class GPS extends Component {
             </Map>
             {
               basicPlaceInfos &&
-              <div className={"basicPlaceInfos basicBotNotif"}>
-                <div className={"basicPlaceInfos__content"}>
-                  <div className={"basicPlaceInfos__picture"}>
+              <div className={"notification basicBotNotif"}>
+                <div className={"notification__content"}>
+                  <div className={"notification__picture"}>
                     <img src={basicPlaceInfos.img} alt={``} />
                   </div>
                   <div>
@@ -287,7 +287,7 @@ export class GPS extends Component {
                     <p>{basicPlaceInfos.addresse}</p>
                   </div>
                 </div>
-                <div className={"basicPlaceInfos__btns"}>
+                <div className={"notification__btns"}>
                   <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
                   {/* {
                     nearestPlace && !noNearestPlaceInfos &&
