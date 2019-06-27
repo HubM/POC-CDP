@@ -5,6 +5,7 @@ import Camera, { FACING_MODES, IMAGE_TYPES }  from 'react-html5-camera-photo';
 import { Link } from "react-router-dom";
 
 import blueScan from './styles/assets/blue_scan.svg';
+import orangeScan from './styles/assets/orange_scan.svg';
 
 import Nav from "./Nav";
 
@@ -96,51 +97,59 @@ export class CameraPhoto extends React.Component {
         :
         null
         }
-        {
-          !this.state.photoTaken ?
-            <div>
-              <Camera
-                onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
-                idealFacingMode={FACING_MODES.ENVIRONMENT}
-                idealResolution={{width: 640, height: 2000}}
-                // isFullscreen={true}
-                imageType={IMAGE_TYPES.JPG}
-                imageCompression={0.97}
-                isMaxResolution={false}
-                isImageMirror={false}
-                isSilentMode={true}
-                isDisplayStartCameraError={false}
-                // sizeFactor={0.25}
-                onCameraError={error => {this.onCameraError(error)}}
-              />
-            </div>
-            : 
-            <div>
-              {
-                this.state.place &&
-                <div>
-                  <h2>Il semblerait que tu sois à {this.state.name}</h2>
-                  <p>Souhaites-tu avoir plus d'informations sur ce lieu ?</p>
+          <div>
+            <Camera
+              onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
+              idealFacingMode={FACING_MODES.ENVIRONMENT}
+              idealResolution={{width: 640, height: 2000}}
+              // isFullscreen={true}
+              imageType={IMAGE_TYPES.JPG}
+              imageCompression={0.97}
+              isMaxResolution={false}
+              isImageMirror={false}
+              isSilentMode={true}
+              isDisplayStartCameraError={false}
+              // sizeFactor={0.25}
+              onCameraError={error => {this.onCameraError(error)}}
+            />
+          </div>
+          <div>
+            {
+              this.state.place &&
+              <div className={"basicPlaceInfos basicBotNotif"}>
+                <div className={"basicPlaceInfos__content"}>
+                  <div className={"basicPlaceInfos__picture"}>
+                    <img src={this.state.place.img} alt={``} />
+                  </div>
                   <div>
-                    <button onClick={event => this.disableNearestPlace(event)}>Non</button>
-                    <Link
-                      to={{
-                        pathname: "/place",
-                        state: this.state.place
-                      }}
-                    >Oui</Link>
+                    <h2>{this.state.name}</h2>
+                    <p>Le monument a été détecté ! <br /></p>
+                    <p>Vous pouvez maintenant en découvrir plus à son sujet.</p>
                   </div>
                 </div>
-              }
-              {
-                this.state.noPlace &&
-                <div>
-                  <p>Oups, nous ne parvenons pas à trouver la place sur laquelle tu te trouves <span role="img" aria-label="emoji sad">😔</span></p>
-                  <button onClick={this.renewPic}>Nouvelle photo</button>
+                <div className={"basicPlaceInfos__btns"}>
+                  <button onClick={this.closeBasicPlaceInfos}>Découvrir</button>
                 </div>
-              }
-            </div>
-        }
+              </div>
+            }
+            {
+              this.state.noPlace &&
+               <div className={"basicPlaceInfos basicTopNotif"}>
+                <div className={"basicPlaceInfos__content"}>
+                  <div className={"basicPlaceInfos__picture"}>
+                    <img src={orangeScan} alt={``} />
+                  {/* </div> */}
+                  {/* <div> */}
+                    <h2>{this.state.name}</h2>
+                    <p>Nous ne reconnaissons pas le monument... <br /> Êtes-vous bien à côté d'un totem bleu ? Réessayez ou regarder la carte pour voir où ils se trouvent.</p>
+                  </div>
+                </div>
+                <div className={"basicPlaceInfos__btns"}>
+                  <button onClick={this.closeBasicPlaceInfos}>Réessayer</button>
+                </div>
+              </div>
+            }
+          </div>
         <Nav />
       </div>
     );

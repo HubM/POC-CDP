@@ -203,9 +203,12 @@ section {
 }
 
 .basicTopNotif{
-    top: 40%;
+    top: 20%;
     z-index: 2;
-    width: 40%;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 
 .notifNextoPlace {
