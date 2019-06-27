@@ -493,3 +493,28 @@ section {
         padding: 0 30px;
     }
 }
+
+.CIAP {
+    width: calc(100% - 80px);
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+
+    .blueText {
+        color: $darkblue;
+    }
+
+    & > div {
+        margin-bottom: 20px;
+    }
+
+    .CIAP__Téléphone a {
+        text-decoration: none;
+        color: $uiRed;
+    }
+
+    .notification__btns button {
+        padding: 15px 0;
+        flex-basis: 100%;
+    }
+}
