@@ -20,37 +20,53 @@ export class Place extends React.Component {
   }
 
   render() {
+    const { nearestPlace } = this.state;
     return (
       <div>
         {
-          this.state.nearestPlace 
+          nearestPlace 
             ?
-            <Tabs>
-              <TabList>
-                <Tab>Avant / Après</Tab>
-                <Tab>Infos</Tab>
-                <Tab>Fun facts</Tab>
-              </TabList>
+            <div className={'placeInfos'}>
+              <h1>{nearestPlace.name}</h1>
+              <Tabs>
+                <TabList>
+                  <Tab>Avant / Après</Tab>
+                  <Tab>Infos</Tab>
+                  <Tab>Fun facts</Tab>
+                </TabList>
 
-              <TabPanel>
-                <div className={'beforeAfterSlider'}>
-                  <BeforeAfterSlider
-                    before={this.state.nearestPlace.pictures.current.big}
-                    beforeClassName={"placeOldPicture"}
-                    after={this.state.nearestPlace.pictures.old}
-                    afterClassName={"placeNextPicture"}
-                    width={window.innerWidth}
-                    height={window.innerHeight - 200}
-                  />
-                </div>
-              </TabPanel>
-              <TabPanel>
-                <h2>Infos pannel</h2>
-              </TabPanel>
-              <TabPanel>
-                <h2>Fun facts</h2>
-              </TabPanel>              
-            </Tabs>
+                <TabPanel>
+                  <div className={'placeInfos__beforeAfterSlider'}>
+                    <BeforeAfterSlider
+                      before={nearestPlace.pictures.current.big}
+                      beforeClassName={"placeOldPicture"}
+                      after={nearestPlace.pictures.old}
+                      afterClassName={"placeNextPicture"}
+                      width={window.innerWidth}
+                      height={window.innerHeight - 200}
+                    />
+                  </div>
+                </TabPanel>
+                <TabPanel>
+                  <ul className={'placeInfos__infos'}>
+                    <li>
+                      <img src={nearestPlace.pictures.current.big} alt={`${nearestPlace.name}`} />
+                    </li>
+                    <li className={'placeInfos__infos__colored'}>
+                      <h2>En bref</h2>
+                      <p>{nearestPlace.content.introduction}</p>
+                    </li>
+                    <li className={'placeInfos__infos__history'}>
+                      <h2>Un peu d'histoire</h2>
+                      <p>{nearestPlace.content.histoire}</p>
+                    </li>
+                  </ul>
+                </TabPanel>
+                <TabPanel>
+                  <h2>Fun facts</h2>
+                </TabPanel>              
+              </Tabs>
+            </div>
     
             : 
             <div className={'placeNotFound'}>

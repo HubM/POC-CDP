@@ -305,11 +305,24 @@ section {
 }
 
 
+/////////////////
+// PLACE INFOS
+/////////////////
+.placeInfos {
+    h1 {
+        font-weight: 700;
+        font-size: 15px;
+        text-align: center;
+        margin: 35px 0;
+    }
+}
+
 .react-tabs__tab-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: none;
+    margin: 0;
 }
 
 .react-tabs__tab {
@@ -319,6 +332,9 @@ section {
     font-weight: 700;
     color: #CBCBCB;
     outline: 0;
+    flex-basis: 33%;
+    text-align: center;
+    transition: border-bottom, color .5s ease;
 
     &:focus {
         outline: 0;
@@ -330,6 +346,10 @@ section {
     border-color: transparent;
     outline: none;
     border-bottom: 4px solid $uiOrange;
+}
+
+.react-tabs__tab-panel {
+    margin-top: 1px;
 }
 
 .react-tabs__tab--selected {
@@ -344,4 +364,46 @@ section {
 
 .styles_content__1Phom {
     cursor: url('https://m2groupe4.ecvdigitalbdx.fr/assets/img/pointer.svg') 20 12, auto !important;	
+}
+
+
+.placeInfos__infos {
+    background: $gray;
+    padding: 20px 0;
+
+    li {
+        width: calc(100% - 80px);
+        margin: 0 20px;
+        padding: 20px;
+        background: #FFFFFF;
+        border-radius: 5px;
+
+        h2 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 13px;
+            color: $textGray;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        img {
+            // width: 295px;
+            height: 295px;
+            display: block;
+            width: 100%;
+        }
+    }
+
+
+
+    &__colored {
+        p {
+            border-left: 4px solid $darkblue;
+            padding-left: 20px;
+        }
+    }
 }

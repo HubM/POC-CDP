@@ -228,9 +228,9 @@ export class GPS extends Component {
             >
               <Polygon
                 paths={polyLinePaths}
-                strokeColor="#0000FF"
-                strokeOpacity={0.8}
-                strokeWeight={1}
+                strokeOpacity={0.0}
+                strokeWeight={0}
+                fillOpacity={0.0}
               />
               {
                 isGeolocated &&
