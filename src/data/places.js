@@ -136,8 +136,8 @@ export default [
         small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/orleans.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/orlean-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg"
+      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/apres.jpg",
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/gare_d_orleans/avant.jpg"
     } 
   },
   {
@@ -235,8 +235,8 @@ export default [
         small: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/120/grosse-cloche.jpg",
         big: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/590/grosse-cloche-590.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/avant.jpg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse-cloche/apres.jpg"
+      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/apres.png",
+      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/grosse_cloche/avant.png"
     } 
   },
   {
