@@ -233,7 +233,7 @@ export class GPS extends Component {
                 <Marker
                   title={'Your position.'}
                   name={`You`}
-                  icon={"http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
+                  icon={"https://m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
                   position={{lat, lng}} 
                 />
               }

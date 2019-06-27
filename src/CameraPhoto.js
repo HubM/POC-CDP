@@ -76,7 +76,7 @@ export class CameraPhoto extends React.Component {
 
   closeBasicPlaceInfos = () => {
     this.setState({
-      basicPlaceInfos: null,
+      basicPlaceInfos: null
     })
   }
  
@@ -134,7 +134,8 @@ export class CameraPhoto extends React.Component {
                     <p>Vous pouvez maintenant en découvrir plus à son sujet.</p>
                   </div>
                 </div>
-                <div className={"notification__btns"}>
+                <div className={"notification__btns multiple"}>
+                  <button onClick={() => this.setState({ place: null })}>Réessayer</button>
                   <Link
                     to={{
                       pathname: '/place',
