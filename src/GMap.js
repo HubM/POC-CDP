@@ -211,7 +211,6 @@ export class GPS extends Component {
           </div>
         </div>
     } else if (lat && lng) {
-
       view = 
         <div className={'mapsView'}>
           {
@@ -264,7 +263,7 @@ export class GPS extends Component {
                 <Marker
                   title={'Your position.'}
                   name={`You`}
-                  icon={"https://m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
+                  icon={"http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/your_position.svg"}
                   position={{lat, lng}} 
                 />
               }

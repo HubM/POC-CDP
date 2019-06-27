@@ -78,8 +78,8 @@ export default [
         small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/ecv_image.jpg",
         big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/ecv_image.jpg"
       },
-      present: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/apres.jpg",
-      old: "http://www.m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.png"
+      present: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/apres.jpg",
+      old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.jpg"
     },
   },
   {
