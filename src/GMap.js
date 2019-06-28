@@ -14,6 +14,7 @@ import {ReactComponent as CDPIcon} from './styles/assets/logoCDP.svg';
 import {ReactComponent as LoaderMap} from './styles/assets/loadingLogo.svg';
 
 const styleMap = require('./styleMap.json')
+
 const mapStyles = {
   width: '100%',
   height: '100%',
@@ -81,7 +82,6 @@ export class GPS extends Component {
               nearestPlace : place,
               isGeolocated: true,
             })
-            
             return true;
         } else {
           this.setState({
@@ -152,12 +152,12 @@ export class GPS extends Component {
     })
   }
 
-
   render() {
     const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos, isCIAPActive, positionUnavailable } = this.state;
-    let view; 
+    let MapView; 
+
     if (isCIAPActive) {
-      view =
+      MapView =
         <div className={"notification basicBotNotif CIAP"}>
           <h1 className={'pageTitle'}>CIAP</h1>
           <div className={'CIAP__horaires'}>
@@ -183,12 +183,12 @@ export class GPS extends Component {
             <h2>Tarifs</h2>
             <p><span className={'blueText'}>Entrée libre</span> et <span className={'blueText'}>gratuite</span> dans l'exposition</p>
           </div>
-          <div class="notification__btns">
+          <div className={"notification__btns"}>
             <button onClick={() => this.setState({isCIAPActive: false})}>Fermer</button>
           </div>
         </div>
     } else if (lat && lng) {
-      view = 
+      MapView = 
         <div className={'mapsView'}>
           {
             nearestPlace && !noNearestPlaceInfos 
@@ -201,8 +201,8 @@ export class GPS extends Component {
             className={'notifNextoPlace'}
             >
               <div className={'notifNextoPlace__container'}>
-                  <CDPIcon />
-                  <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
+                <CDPIcon />
+                <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
               </div>
             </Link>
           }
@@ -340,7 +340,7 @@ export class GPS extends Component {
         </footer>
         </div>
     } else {
-      view = 
+      MapView = 
       <div className={'loadingMap'}>
         <LoaderMap />
       </div>
@@ -348,7 +348,7 @@ export class GPS extends Component {
 
     return (
       <div>
-        {view}
+        {MapView}
       </div>
     );
   }

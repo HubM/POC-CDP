@@ -35,5 +35,9 @@ app.post('/api/image', (req, res) => {
 })
 
 app.listen(process.env.PORT || 4000, function () {
-  console.log('Example app listening on port 4000!')
+  if (process.env.PORT) {
+    console.log(`CDP2021 app running on port ${process.env.PORT}`);
+  } else {
+    console.log(`CDP2021 app running on port 4000`);
+  }
 })

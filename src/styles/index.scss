@@ -37,10 +37,10 @@ body {
     // -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
 }
 
-section {
-    width: 100vw;
-    // height: 100vh;
-}
+// section {
+//     width: 100vw;
+//     // height: 100vh;
+// }
 
 
 .pageTitle {
@@ -365,7 +365,7 @@ section {
 
 .react-tabs__tab {
     padding: 20px;
-    font-size: 15px;
+    font-size: 13px;
     font-family: $fontMain;
     font-weight: 700;
     color: #CBCBCB;
@@ -376,6 +376,10 @@ section {
 
     &:focus {
         outline: 0;
+    }
+
+    @media screen and (min-width: 376px) {
+        font-size: 15px;
     }
 }
 
@@ -469,6 +473,7 @@ section {
         padding: 20px;
         background-color: #FFFFFF;
         border-radius: 5px;
+        line-height: 1.5;
     }
 }
 
@@ -521,7 +526,7 @@ section {
     .pageTitle {
         margin: 0px 0 35px 0;
     }
-    
+
     .blueText {
         color: $darkblue;
     }

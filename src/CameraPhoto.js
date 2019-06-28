@@ -36,12 +36,11 @@ export class CameraPhoto extends React.Component {
         alert('Merci de tester cette fonctionnalité en production ! 😀');
         this.props.history.push("/");
       } else {
-        appClarifai.models.initModel({id: 'patrimoine', version: "65809e58e9ed4c6a9f6369fbd50015e9"}).then(customModel => {
+        appClarifai.models.initModel({id: 'patrimoine', version: "4ab032a98be24cfca2a0c7faa83ef4e0"}).then(customModel => {
           return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
         })
         .then(response => {
           var concepts = response['outputs'][0]['data']['concepts'];
-          console.log(concepts);
 
           if (concepts.length > 0) {
             if (concepts[0].value >= 0.6) {

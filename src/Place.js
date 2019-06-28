@@ -113,7 +113,6 @@ export class Place extends React.Component {
                 </TabPanel>              
               </Tabs>
             </div>
-    
             : 
             <div className={'placeNotFound'}>
               <div style={{textAlign: "center"}}>
@@ -132,7 +131,6 @@ export class Place extends React.Component {
         <Nav />
       </div>
     );
-      
   }
 }
 
