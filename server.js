@@ -14,16 +14,26 @@ app.get('/', function (req, res) {
 
 app.post('/api/image', (req, res) => {
   const base64Image = req.body.picture.split(';base64,').pop();
+  console.log(process.env.NODE_ENV);
 
-  fs.writeFile(__dirname + '/build/out.jpg', base64Image, {encoding: 'base64'}, function(err) {
-    if (err) {
-      console.log(err);
-    }
-  });
+  if (process.env.NODE_ENV === "production") {
+    fs.writeFile(__dirname + '/build/out.jpg', base64Image, {encoding: 'base64'}, function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
 
-  res.send({
-    url: "https://cdp2021.herokuapp.com/out.jpg"
-  })
+    res.send({
+      url: "https://cdp2021.herokuapp.com/out.jpg"
+    })
+  }
+
+  if (process.env.NODE_ENV === "dev") {
+    res.send({
+      message: "Il est nécessaire d'être en production pour tester cette fonctionnalité"
+    })
+  }
+
 })
 
 app.listen(process.env.PORT || 4000, function () {

@@ -32,31 +32,35 @@ export class CameraPhoto extends React.Component {
       picture: dataUri
     })
     .then(response => {
-      appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
-        return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
-      })
-      .then(response => {
-        this.setState({
-          photoTaken: true
+      if (response.data.message) {
+        alert('A tester sur la prod')
+      } else {
+        appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
+          return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
         })
-
-        var concepts = response['outputs'][0]['data']['concepts'];
-
-        if (concepts[0].value >= 0.6) {
-
-          const place = places.filter(placeItem => placeItem.name === concepts[0].name).flat();
-
+        .then(response => {
           this.setState({
-            place: place[0]
-          }, () => {
-            console.log("NEW STATE", this.state.place)
+            photoTaken: true
           })
-        } else {
-          this.setState({
-            noPlace: true
-          })
-        }
-      })
+  
+          var concepts = response['outputs'][0]['data']['concepts'];
+  
+          if (concepts[0].value >= 0.6) {
+  
+            const place = places.filter(placeItem => placeItem.name === concepts[0].name).flat();
+  
+            this.setState({
+              place: place[0]
+            }, () => {
+              console.log("NEW STATE", this.state.place)
+            })
+          } else {
+            this.setState({
+              noPlace: true
+            })
+          }
+        })
+      }
     })
     .catch(error => {
       console.error(error);
