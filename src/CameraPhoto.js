@@ -108,22 +108,26 @@ export class CameraPhoto extends React.Component {
         :
         null
         }
-          <div>
-            <Camera
-              onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
-              idealFacingMode={FACING_MODES.ENVIRONMENT}
-              idealResolution={{width: 640, height: 600}}
-              // isFullscreen={true}
-              imageType={IMAGE_TYPES.JPG}
-              imageCompression={0.97}
-              isMaxResolution={false}
-              isImageMirror={false}
-              isSilentMode={true}
-              isDisplayStartCameraError={false}
-              // sizeFactor={0.25}
-              onCameraError={error => {this.onCameraError(error)}}
-            />
-          </div>
+        {this.state.basicPlaceInfos ?
+        <div className={"backgroundBlackCamera"}></div>
+        :
+        <div>
+          <Camera
+            onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
+            idealFacingMode={FACING_MODES.ENVIRONMENT}
+            idealResolution={{width: 640, height: 600}}
+            // isFullscreen={true}
+            imageType={IMAGE_TYPES.JPG}
+            imageCompression={0.97}
+            isMaxResolution={false}
+            isImageMirror={false}
+            isSilentMode={true}
+            isDisplayStartCameraError={false}
+            // sizeFactor={0.25}
+            onCameraError={error => {this.onCameraError(error)}}
+          />
+        </div>
+        }
           <div>
             {
               place &&
