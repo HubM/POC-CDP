@@ -14,9 +14,7 @@ app.get('/', function (req, res) {
 
 app.post('/api/image', (req, res) => {
   const base64Image = req.body.picture.split(';base64,').pop();
-  console.log(process.env.NODE_ENV);
-
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "prod") {
     fs.writeFile(__dirname + '/build/out.jpg', base64Image, {encoding: 'base64'}, function(err) {
       if (err) {
         console.log(err);

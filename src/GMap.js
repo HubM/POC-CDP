@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {ReactComponent as LogoMap} from './styles/assets/map.svg';
 import {ReactComponent as LogoScan} from './styles/assets/scan.svg';
 import {ReactComponent as LogoPlace} from './styles/assets/place.svg';
+import {ReactComponent as ScanOrange} from './styles/assets/orange_scan.svg';
 
 import places from "./data/places";
 
@@ -18,6 +19,12 @@ const mapStyles = {
   height: '100%',
   borderTopLeftRadius: '5px',
   borderTopRightRadius: '5px',
+}
+
+const noGeolocPosition = {
+  zoom: 14,
+  lat: 44.85,
+  lng: -0.560049
 }
 
 export class GPS extends Component {
@@ -102,57 +109,27 @@ export class GPS extends Component {
   errorGeoloc = error => {
     switch (error.code) {
       case 0:
-        alert('UNKNOWN ERROR');
+        this.setState({
+          positionUnavailable: true
+        })
         break;
       case 1:
-        this.setState({
-          zoom: 14,
-          lat: 44.85,
-          lng: -0.560049
-        });
+        this.setState(noGeolocPosition);
         break;
       case 2:
-        alert('POSITION UNAVAILABLE ERROR')
+          this.setState({
+            positionUnavailable: true
+          })
         break;
       case 3: 
-        alert('TIMED OUT ERROR')
+        this.setState({
+          positionUnavailable: true
+        })
         break;
       default:
         break;
     }
   }
-
-  // getDirectionToPoint = event => {
-  //   const { lat, lng, directionsService } = this.state;
-
-  //   this.setState({
-  //     gps: null
-  //   })
-
-  //   const request = {
-  //     origin: {
-  //       lat,
-  //       lng
-  //     },
-  //     destination: event.position,
-  //     travelMode: 'WALKING'
-  //   };
-
-  //   directionsService.route(request, (results, status) => {
-  //     if (status === "OK") {
-
-  //       const pathsArray = Object.keys(results.routes[0].overview_path).map((k) => results.routes[0].overview_path[k])
-
-  //       this.setState({
-  //         gps: {
-  //           path: pathsArray
-  //         }
-  //       })
-  //     } else {
-  //         console.log("NOT-GOOD!");
-  //     }
-  //   })
-  // }
 
   getBasicPlaceInfos = (place) => {
     this.setState({
@@ -177,12 +154,12 @@ export class GPS extends Component {
 
 
   render() {
-    const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos, isCIAPActive } = this.state;
+    const { lat, lng, polyLinePaths, nearestPlace, gps, zoom, isGeolocated, basicPlaceInfos, noNearestPlaceInfos, isCIAPActive, positionUnavailable } = this.state;
     let view; 
     if (isCIAPActive) {
       view =
         <div className={"notification basicBotNotif CIAP"}>
-          <h1>CIAP</h1>
+          <h1 className={'pageTitle'}>CIAP</h1>
           <div className={'CIAP__horaires'}>
             <h2>Horaires</h2>
             <p className={'blueText'}>Du lundi au samedi :</p>
@@ -325,6 +302,23 @@ export class GPS extends Component {
                 </div>
               </div>
             }
+            {
+              positionUnavailable &&
+              <div className={"notification scanNotif basicTopNotif"}>
+                <div className={"notification__picture"}>
+                  <div className={"notification__content"}>
+                    <ScanOrange />
+                    <p>La géolocalisation de votre appareil ne peut pas être détecté... Merci de vider le cache de votre navigateur pour recommencer.</p>
+                  </div>
+                </div>
+                <div className={"notification__btns"}>
+                  <button onClick={() => this.setState({ 
+                    positionUnavailable: null, 
+                    ...noGeolocPosition 
+                    })}>Fermer</button>
+                </div>
+              </div>
+            }
           </div>
           <footer className="mainNav">
           <nav className="navigator">
@@ -345,9 +339,7 @@ export class GPS extends Component {
           </nav>
         </footer>
         </div>
-    }
-
-    else {
+    } else {
       view = 
       <div className={'loadingMap'}>
         <LoaderMap />
@@ -362,7 +354,9 @@ export class GPS extends Component {
   }
 
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.state.intervalId);
+    if (this.props.history.location.pathname !== "/") {
+      navigator.geolocation.clearWatch(this.state.intervalId);
+    }
   }
 }
 

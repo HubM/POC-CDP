@@ -51,10 +51,15 @@ section {
 }
 
 .backgroundBlackCamera{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     height: 600px;
     background-color: black;
+
+
+    @media screen and (min-width: 374px) {
+        width: calc(100% - 40px);
+    }
 }
 
 .notification {
@@ -114,6 +119,7 @@ section {
 
         &.multiple {
             justify-content: space-around;
+            align-items: center;
             text-align: center;
 
             a, button {
@@ -512,6 +518,10 @@ section {
     left: 20px;
     bottom: 20px;
 
+    .pageTitle {
+        margin: 0px 0 35px 0;
+    }
+    
     .blueText {
         color: $darkblue;
     }

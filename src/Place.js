@@ -36,35 +36,62 @@ export class Place extends React.Component {
                 </TabList>
 
                 <TabPanel>
-                  <div className={'placeInfos__beforeAfterSlider'}>
-                    <BeforeAfterSlider
-                      before={nearestPlace.pictures.present}
-                      beforeClassName={"placeOldPicture"}
-                      after={nearestPlace.pictures.old}
-                      afterClassName={"placeNextPicture"}
-                      width={window.innerWidth}
-                      height={window.innerHeight - 200}
-                    />
-                  </div>
-                </TabPanel>
-                <TabPanel>
-                  <ul className={'placeInfos__infos'}>
-                    <li className={'placeCard'}>
-                      <img src={nearestPlace.pictures.current.big} alt={`${nearestPlace.name}`} />
-                    </li>
-                    <li className={'placeCard placeInfos__infos__colored'}>
-                      <h2>En bref</h2>
-                      <p>{nearestPlace.content.introduction}</p>
-                    </li>
-                    <li className={'placeCard placeInfos__infos__history'}>
-                      <h2>Un peu d'histoire</h2>
-                      <p>{nearestPlace.content.histoire}</p>
-                    </li>
-                  </ul>
+                  {
+                    nearestPlace.pictures.present && 
+                    nearestPlace.pictures.old 
+                    ?
+                    <div className={'placeInfos__beforeAfterSlider'}>
+                      <BeforeAfterSlider
+                        before={nearestPlace.pictures.present}
+                        beforeClassName={"placeOldPicture"}
+                        after={nearestPlace.pictures.old}
+                        afterClassName={"placeNextPicture"}
+                        width={window.innerWidth}
+                        height={window.innerHeight - 200}
+                      />
+                    </div>
+                    :
+                    <div className={"noFunFacts"}>
+                      <p>Pas d'images disponibles pour ce monument <span role="img" aria-label="emoji confuse">😕</span></p>
+                    </div>   
+                  }
                 </TabPanel>
                 <TabPanel>
                   {
-                    nearestPlace.content.funfact.length > 0 
+                    nearestPlace.content 
+                      ?
+                      <ul className={'placeInfos__infos'}>
+                        {
+                          nearestPlace.pictures.current.big &&
+                          <li className={'placeCard'}>
+                            <img src={nearestPlace.pictures.current.big} alt={`${nearestPlace.name}`} />
+                          </li>
+                        }
+                        {
+                          nearestPlace.content.introduction &&
+                          <li className={'placeCard placeInfos__infos__colored'}>
+                            <h2>En bref</h2>
+                            <p>{nearestPlace.content.introduction}</p>
+                          </li>
+                        }
+                        {
+                          nearestPlace.content.histoire &&
+                          <li className={'placeCard placeInfos__infos__history'}>
+                            <h2>Un peu d'histoire</h2>
+                            <p>{nearestPlace.content.histoire}</p>
+                          </li>
+                        }
+                      </ul>
+                      : 
+                      <div className={"noFunFacts"}>
+                        <p>Pas de contenu disponible pour ce monument <span role="img" aria-label="emoji confuse">😕</span></p>
+                      </div>                      
+                  }
+                 
+                </TabPanel>
+                <TabPanel>
+                  {
+                    nearestPlace.content && nearestPlace.content.funfact.length > 0 
                     ? 
                     <ul className={'placeInfos__funFacts'}>
                       {
