@@ -36,7 +36,7 @@ export class CameraPhoto extends React.Component {
         alert('Merci de tester cette fonctionnalité en production ! 😀');
         this.props.history.push("/");
       } else {
-        appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
+        appClarifai.models.initModel({id: 'patrimoine', version: "65809e58e9ed4c6a9f6369fbd50015e9"}).then(customModel => {
           return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
         })
         .then(response => {

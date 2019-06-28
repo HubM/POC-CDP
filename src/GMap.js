@@ -159,7 +159,7 @@ export class GPS extends Component {
     if (isCIAPActive) {
       view =
         <div className={"notification basicBotNotif CIAP"}>
-          <h1>CIAP</h1>
+          <h1 className={'pageTitle'}>CIAP</h1>
           <div className={'CIAP__horaires'}>
             <h2>Horaires</h2>
             <p className={'blueText'}>Du lundi au samedi :</p>
