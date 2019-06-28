@@ -51,10 +51,15 @@ section {
 }
 
 .backgroundBlackCamera{
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     height: 640px;
     background-color: black;
+
+
+    @media screen and (min-width: 374px) {
+        width: calc(100% - 40px);
+    }
 }
 
 .notification {

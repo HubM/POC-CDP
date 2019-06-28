@@ -339,9 +339,7 @@ export class GPS extends Component {
           </nav>
         </footer>
         </div>
-    }
-
-    else {
+    } else {
       view = 
       <div className={'loadingMap'}>
         <LoaderMap />
@@ -356,7 +354,9 @@ export class GPS extends Component {
   }
 
   componentWillUnmount() {
-    navigator.geolocation.clearWatch(this.state.intervalId);
+    if (this.props.history.location.pathname !== "/") {
+      navigator.geolocation.clearWatch(this.state.intervalId);
+    }
   }
 }
 
