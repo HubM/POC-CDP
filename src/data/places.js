@@ -41,7 +41,7 @@ export default [
     },
     content: {
       introduction: "Le Grand Théâtre de Bordeaux, commandé par le maréchal de Richelieu, gouverneur de Guyenne, et édifié par l'architecte Victor Louis, a été inauguré le 7 avril 1780 avec la représentation de l'Athalie de Jean Racine.",
-      histoire: "Classé monument historique en 18991, réminiscence de l'Antiquité par son péristyle, l'ouvrage de 88 mètres sur 47 de style néo-classique, s'inscrit dans l'opulent urbanisme bordelais hérité du siècle des Lumières. Il abrite une salle de spectacle d'un millier de places, exemple parfait de théâtre à l'italienne. Après plus de deux cents ans d'usages divers ou de transformations successives de ses salles comme de son environnement, il a retrouvé, à la fois sa décoration intérieure bleue, or et marbre blanc d'origine à l'occasion de sa dernière restauration en 1991 et sa perspective de temple des muses avec l'aménagement de la place de la Comédie et du cours du Chapeau-Rouge en 2006..",
+      histoire: "Classé monument historique en 18991, réminiscence de l'Antiquité par son péristyle, l'ouvrage de 88 mètres sur 47 de style néo-classique, s'inscrit dans l'opulent urbanisme bordelais hérité du siècle des Lumières. Il abrite une salle de spectacle d'un millier de places, exemple parfait de théâtre à l'italienne. Après plus de deux cents ans d'usages divers ou de transformations successives de ses salles comme de son environnement, il a retrouvé, à la fois sa décoration intérieure bleue, or et marbre blanc d'origine à l'occasion de sa dernière restauration en 1991 et sa perspective de temple des muses avec l'aménagement de la place de la Comédie et du cours du Chapeau-Rouge en 2006.",
       funfact:  [
         {
           text: "Le Grand-Théâtre présente en vue frontale un portique de 12 colonnes corinthiennes au-dessus desquelles sont alignées 12 statues : les 9 muses et 3 déesses de la mythologie antique.",
@@ -75,8 +75,8 @@ export default [
     },
     pictures: {
       current: {
-        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/ecv_image.jpg",
-        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/ecv_image.jpg"
+        small: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/120/ecv_image.jpg",
+        big: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/590/ecv_image.jpg"
       },
       present: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/apres.jpg",
       old: "https://m2groupe4.ecvdigitalbdx.fr/assets/img/ecv/avant.jpg"
@@ -122,8 +122,8 @@ export default [
       lng: -0.561097,
     },
     content: {
-      introduction: "La gare de Bordeaux-Bastide, anciennement gare de Bastide-Orléans, a été inaugurée le 20 septembre 18521 pour accueillir le chemin de fer Paris-Bordeaux .Le bâtiment, situé quai des Queyries dans le quartier de la Bastide accueille aujourd'hui un complexe de salles de cinéma.",
-      histoire: "La gare Bordeaux-Bastide, édifiée en 1852, est l'une des plus anciennes gares de France. Le 20 septembre 1852, elle accueillit ses premiers trains en direction d'Angoulême. Les premiers trains en provenance de Paris arrivèrent en juillet 18533. En 1859, une halle marchandise est construite, ainsi que la Halle des Magasins Généraux de Bordeaux, premier embranchement privé de la Bastide3. Le 25 août 1860, le pont sur la Garonne surnommé passerelle Eiffel a permis la liaison ferroviaire entre ce réseau et celui de la compagnie du Midi, propriétaire de la ligne de Bordeaux-Saint-Jean à Sète-Ville. Dès 1861, elle se retrouve ainsi amputée d'une partie de son trafic passager au profit de la gare Saint-Jean. Elle accueillera un trafic passagers d'intérêt local jusqu'en 19513 pour se retrouver complètement abandonnée en 1990.",
+      introduction: "La gare de Bordeaux-Bastide, anciennement gare de Bastide-Orléans, a été inaugurée le 20 septembre 18521 pour accueillir le chemin de fer Paris-Bordeaux. Le bâtiment, situé quai des Queyries dans le quartier de la Bastide accueille aujourd'hui un complexe de salles de cinéma.",
+      histoire: "La gare Bordeaux-Bastide, édifiée en 1852, est l'une des plus anciennes gares de France. Le 20 septembre 1852, elle accueillit ses premiers trains en direction d'Angoulême. Les premiers trains en provenance de Paris arrivèrent en juillet 1853. En 1859, une halle marchandise est construite, ainsi que la Halle des Magasins Généraux de Bordeaux, premier embranchement privé de la Bastide. Le 25 août 1860, le pont sur la Garonne surnommé passerelle Eiffel a permis la liaison ferroviaire entre ce réseau et celui de la compagnie du Midi, propriétaire de la ligne de Bordeaux-Saint-Jean à Sète-Ville. Dès 1861, elle se retrouve ainsi amputée d'une partie de son trafic passager au profit de la gare Saint-Jean. Elle accueillera un trafic passagers d'intérêt local jusqu'en 1951 pour se retrouver complètement abandonnée en 1990.",
       funfact: []
     },
     pictures: {
@@ -216,7 +216,7 @@ export default [
     },
     content: {
       introduction: "La grosse cloche de Bordeaux est le beffroi de l'ancien hôtel de ville. La porte et les tours, dites de la Grosse Cloche, sont classées au titre des monuments historiques par arrêté du 12 juillet 1886.",
-      histoire: "C'est un des rares monuments civils (avec la porte Cailhau) que la ville conserve du Moyen Âge. Elle a été restaurée du 4 au 22 juillet 20162. Elle a été édifiée au xve siècle sur les restes de l'ancienne Porte Saint-Éloy (dite aussi porte Saint James) du xiiie siècle (adossée à l’église Saint-Éloi du xiie siècle), ouverte sur le rempart du xiiie siècle et sous laquelle passaient les pèlerins de Saint-Jacques en route pour Compostelle. D'où le nom de la rue Saint-James voisine, Saint-James étant le nom gascon de Saint-Jacques3. Elle est composée de deux tours circulaires de 40 mètres de haut reliées par un bâtiment central et dominée par le léopard d'or. À l'origine c'était un ensemble de quatre tours rondes et crenelées auxquelles furent adjointes, au xiie siècle, deux autres tours et ne s'élevait que d'un étage. Ces deux dernières se situaient à l'emplacement du milieu de l'actuel cours Victor Hugo qui était à l'époque un fossé longeant le rempart.",
+      histoire: "C'est un des rares monuments civils (avec la porte Cailhau) que la ville conserve du Moyen Âge. Elle a été restaurée du 4 au 22 juillet 20162. Elle a été édifiée au xve siècle sur les restes de l'ancienne Porte Saint-Éloy (dite aussi porte Saint James) du XIIIe siècle (adossée à l’église Saint-Éloi du XIIe siècle), ouverte sur le rempart du XIIIe siècle et sous laquelle passaient les pèlerins de Saint-Jacques en route pour Compostelle. D'où le nom de la rue Saint-James voisine, Saint-James étant le nom gascon de Saint-Jacques. Elle est composée de deux tours circulaires de 40 mètres de haut reliées par un bâtiment central et dominée par le léopard d'or. À l'origine c'était un ensemble de quatre tours rondes et crenelées auxquelles furent adjointes, au XIIe siècle, deux autres tours et ne s'élevait que d'un étage. Ces deux dernières se situaient à l'emplacement du milieu de l'actuel cours Victor Hugo qui était à l'époque un fossé longeant le rempart.",
       funfact: [
         {
           text: "La cloche actuelle pèse 7 800kg pour deux mètres de hauteur et de diamètre.",
@@ -362,7 +362,6 @@ export default [
       introduction: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
       histoire: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget risus bibendum, lobortis ante eu, vehicula dui. Nulla rutrum dignissim risus, sit amet dapibus est. Suspendisse ac sapien commodo lacus aliquam vulputate. Donec scelerisque tellus ut libero rutrum rhoncus. Aenean id commodo turpis. Donec mattis odio vitae nunc ornare volutpat. In hac habitasse platea dictumst. In molestie efficitur ligula, sed suscipit lacus mattis ac. Vivamus eget mauris ac diam laoreet efficitur. Aliquam mollis lorem vitae orci consectetur, vitae consectetur leo finibus. Nunc dignissim dapibus interdum. Donec et dolor posuere, bibendum arcu a, vestibulum augue.",
       funfact: [],
-      horaires: ""
     },
     pictures: {
       current: {
