@@ -33,12 +33,13 @@ export class CameraPhoto extends React.Component {
       picture: dataUri
     })
     .then(response => {
-      if (response.data.message) {
-        alert('Merci de tester cette fonctionnalité en production ! 😀');
-        this.props.history.push("/");
-      } else {
+      // if (response.data.message) {
+      //   alert('Merci de tester cette fonctionnalité en production ! 😀');
+      //   this.props.history.push("/");
+      // } else {
         appClarifai.models.initModel({id: 'patrimoine', version: "4ab032a98be24cfca2a0c7faa83ef4e0"}).then(customModel => {
-          return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
+          // return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
+          return customModel.predict("https://avis-vin.lefigaro.fr/var/img/138/34325-650x330-aanaka-lacitaduvin4.jpg");
         })
         .then(response => {
           var concepts = response['outputs'][0]['data']['concepts'];
@@ -60,7 +61,7 @@ export class CameraPhoto extends React.Component {
             })
           }
         })
-      }
+      // }
     })
     .catch(error => {
       console.error(error);
@@ -114,7 +115,7 @@ export class CameraPhoto extends React.Component {
           : null
         }
         {
-          basicPlaceInfos ?
+          basicPlaceInfos || place ?
             <div className={"backgroundBlackCamera"}></div>
             : <div>
                 {
