@@ -38,8 +38,7 @@ export class CameraPhoto extends React.Component {
         this.props.history.push("/");
       } else {
         appClarifai.models.initModel({id: 'patrimoine', version: "4ab032a98be24cfca2a0c7faa83ef4e0"}).then(customModel => {
-          // return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
-          return customModel.predict("https://avis-vin.lefigaro.fr/var/img/138/34325-650x330-aanaka-lacitaduvin4.jpg");
+          return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
         })
         .then(response => {
           var concepts = response['outputs'][0]['data']['concepts'];
