@@ -87,7 +87,14 @@ body {
     &__content {
         display: flex; 
         justify-content: center;
-        align-items: center
+        align-items: center;
+
+        @media screen and (min-width: 480px) {
+            max-width: 320px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
     }
 
     &__picture {
