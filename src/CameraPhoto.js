@@ -67,7 +67,9 @@ export class CameraPhoto extends React.Component {
   }
 
   onCameraError = error => {
-    console.log(error);
+    this.setState({
+      cameraBlocked: true
+    })
   }
 
   renewPic = () => {
@@ -84,7 +86,7 @@ export class CameraPhoto extends React.Component {
   }
  
   render() {
-    const { place, noPlace, basicPlaceInfos, noResults } = this.state;
+    const { place, noPlace, basicPlaceInfos, noResults, cameraBlocked } = this.state;
     return (
       <div className="App">
         <div className="pageTitle">Scannez</div>
@@ -189,6 +191,28 @@ export class CameraPhoto extends React.Component {
                   >Voir la carte</Link>
                 </div>
               </div> 
+            }
+            {
+              cameraBlocked &&
+              <div className={"notification scanNotif placeDiscovered basicTopNotif"}>
+                <div className={"notification__picture"}>
+                  <div className={"notification__content"}>
+                    <ScanOrange />
+                  </div>
+                  <div>
+                    <h2>Dommage !  <span role="img" aria-label="emoji confuse">😕</span></h2>
+                    <p>Il semblerait que vous avez refusé d'utiliser la caméra... Il est toujours possible de voir les monuments sur la carte.</p>
+                  </div>
+                </div>
+                <div className={"notification__btns multiple"}>
+                  <button onClick={() => this.setState({ cameraBlocked: false })}>Fermer</button>
+                  <Link
+                    to={{
+                      pathname: '/'
+                    }}
+                  >Voir la carte</Link>
+                </div>
+              </div>               
             }
           </div>
         <Nav />

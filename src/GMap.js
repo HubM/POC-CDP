@@ -198,15 +198,15 @@ export class GPS extends Component {
               pathname: "/place",
               state: nearestPlace
             }}
-            className={'notifNextoPlace'}
+            className={`notifNextoPlace`}
             >
-              <div className={'notifNextoPlace__container'}>
+              <div className={"notifNextoPlace__container"}>
                 <CDPIcon />
                 <p>Vous êtes à proximité d'un totem bleu ! <br />Découvrez en plus sur le monument.</p>
               </div>
             </Link>
           }
-          <form className={'searchPlace'} autoComplete={'off'}>
+           <form className={'searchPlace'} autoComplete={'off'}>
             <label htmlFor="searchInput">Rechercher</label>
             <div className={'searchPlace__input'}>
               <input type='text' placeholder="Exemple: Grand théâtre" name="searchInput" />
