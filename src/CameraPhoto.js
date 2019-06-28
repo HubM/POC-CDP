@@ -33,30 +33,29 @@ export class CameraPhoto extends React.Component {
     })
     .then(response => {
       if (response.data.message) {
-        alert('A tester sur la prod')
+        alert('Merci de tester cette fonctionnalité en production ! 😀')
       } else {
         appClarifai.models.initModel({id: 'patrimoine', version: "c26939103823474eb04d28bde0cd5b9e"}).then(customModel => {
           return customModel.predict("https://cdp2021.herokuapp.com/out.jpg");
         })
         .then(response => {
-          this.setState({
-            photoTaken: true
-          })
-  
           var concepts = response['outputs'][0]['data']['concepts'];
-  
-          if (concepts[0].value >= 0.6) {
-  
-            const place = places.filter(placeItem => placeItem.name === concepts[0].name).flat();
-  
+          console.log(concepts);
+
+          if (concepts.length > 0) {
+            if (concepts[0].value >= 0.6) {
+              const place = places.filter(placeItem => placeItem.name === concepts[0].name).flat();
+              this.setState({
+                place: place[0]
+              })
+            } else {
+              this.setState({
+                noPlace: true
+              })
+            }
+          } else  {
             this.setState({
-              place: place[0]
-            }, () => {
-              console.log("NEW STATE", this.state.place)
-            })
-          } else {
-            this.setState({
-              noPlace: true
+              noResults: true
             })
           }
         })
@@ -85,48 +84,48 @@ export class CameraPhoto extends React.Component {
   }
  
   render() {
-    const { place, noPlace } = this.state;
+    const { place, noPlace, basicPlaceInfos, noResults } = this.state;
     return (
       <div className="App">
         <div className="pageTitle">Scannez</div>
-        {this.state.basicPlaceInfos ?
-        <div className={"notification scanNotif basicTopNotif"}>
-          <div className={"notification__picture"}>
-            <div className={"notification__content"}>
-              <BlueScan />
-              <div>
-                <p>Scannez les monuments situés à proximité de nos totems bleus, pour en apprendre plus sur eux !</p>
-                <p>Utilisez la carte pour situer les totems bleus.</p>
+        {
+          basicPlaceInfos ?
+            <div className={"notification scanNotif basicTopNotif"}>
+              <div className={"notification__picture"}>
+                <div className={"notification__content"}>
+                  <BlueScan />
+                  <div>
+                    <p>Scannez les monuments situés à proximité de nos totems bleus, pour en apprendre plus sur eux !</p>
+                    <p>Utilisez la carte pour situer les totems bleus.</p>
+                  </div>
+                </div>
+                <div className={"notification__btns multiple"}>
+                  <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
+                  <Link to={'/'}>Voir la carte</Link>
+                </div>
               </div>
             </div>
-            <div className={"notification__btns multiple"}>
-              <button onClick={this.closeBasicPlaceInfos}>Fermer</button>
-              <Link to={'/'}>Voir la carte</Link>
-            </div>
-          </div>
-        </div>
-        :
-        null
+          : null
         }
-        {this.state.basicPlaceInfos ?
-        <div className={"backgroundBlackCamera"}></div>
-        :
-        <div>
-          <Camera
-            onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
-            idealFacingMode={FACING_MODES.ENVIRONMENT}
-            idealResolution={{width: 640, height: 600}}
-            // isFullscreen={true}
-            imageType={IMAGE_TYPES.JPG}
-            imageCompression={0.97}
-            isMaxResolution={false}
-            isImageMirror={false}
-            isSilentMode={true}
-            isDisplayStartCameraError={false}
-            // sizeFactor={0.25}
-            onCameraError={error => {this.onCameraError(error)}}
-          />
-        </div>
+        {
+          basicPlaceInfos ?
+            <div className={"backgroundBlackCamera"}></div>
+            : <div>
+                <Camera
+                  onTakePhoto={dataUri => {this.onTakePhoto(dataUri)}}
+                  idealFacingMode={FACING_MODES.ENVIRONMENT}
+                  idealResolution={{width: 640, height: 600}}
+                  // isFullscreen={true}
+                  imageType={IMAGE_TYPES.JPG}
+                  imageCompression={0.97}
+                  isMaxResolution={false}
+                  isImageMirror={false}
+                  isSilentMode={true}
+                  isDisplayStartCameraError={false}
+                  // sizeFactor={0.25}
+                  onCameraError={error => {this.onCameraError(error)}}
+                />
+              </div>
         }
           <div>
             {
@@ -167,6 +166,29 @@ export class CameraPhoto extends React.Component {
                   <Link to={'/'}>Voir la carte</Link>
                 </div>
               </div>
+            }
+            {
+              noResults &&
+              <div className={"notification scanNotif placeDiscovered basicTopNotif"}>
+                <div className={"notification__picture"}>
+                  <div className={"notification__content"}>
+                    <ScanOrange />
+                  </div>
+                  <div>
+                    <h2>Oups !</h2>
+                    <p>Il semblerait qu'il y ait des problèmes avec notre service <span role="img" aria-label="emoji confuse">😕</span></p>
+                    <p>Merci de réessayer ultérieurement</p>
+                  </div>
+                </div>
+                <div className={"notification__btns multiple"}>
+                  <button onClick={() => this.setState({ noResults: null })}>Réessayer</button>
+                  <Link
+                    to={{
+                      pathname: '/'
+                    }}
+                  >Voir la carte</Link>
+                </div>
+              </div> 
             }
           </div>
         <Nav />
